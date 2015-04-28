@@ -39,8 +39,7 @@ public class GameEngine implements ListIterator<Pit> {
 
 	@Override
 	public Pit next() {
-		// FIX THIS
-		if(hasNext())
+		return null;
 	}
 
 	@Override
