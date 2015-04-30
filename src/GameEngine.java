@@ -1,6 +1,6 @@
 import java.util.*;
 
-//Changes
+//This is a sample comment.
 
 public class GameEngine implements ListIterator<Pit> {
 	private LinkedList<Pit> positions;
