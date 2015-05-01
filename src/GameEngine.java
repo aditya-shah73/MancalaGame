@@ -1,10 +1,14 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import javax.swing.event.ChangeListener;
 
 
 public class GameEngine implements Iterator<Pit> {
 	
 	private final int BOARD_SIZE = 14;
 	
+	ArrayList<ChangeListener> listeners;
 	ArrayList<Pit> list;
 	Pit first;
 	int position = 0;
@@ -48,5 +52,9 @@ public class GameEngine implements Iterator<Pit> {
 	public void remove()
 	{
 		//No need to remove any pits
+	}
+	
+	public void attach(ChangeListener l){
+		listeners.add(l);
 	}
 }
