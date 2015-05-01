@@ -1,5 +1,8 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
-
+import java.awt.Font;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -9,42 +12,64 @@ import javax.swing.JTextArea;
 
 public class Settings 
 {
-
-	public static void main(String[] args) 
+	private JFrame frame;
+	private JPanel box;
+	private JPanel option1;
+	private JPanel option2;
+	private JPanel option3;
+	private JComboBox b1;
+	private JComboBox b2;
+	private JTextArea a1;
+	private JTextArea a2;
+	private JButton button;
+	private final int FRAME_WIDTH = 200;
+	private final int FRAME_HEIGHT = 200;
+	
+	public Settings()
 	{
-		JFrame frame = new JFrame();
-		JPanel box = new JPanel();
-		JPanel option1 = new JPanel(new FlowLayout());
-		JPanel option2 = new JPanel(new FlowLayout());
-		 final int FRAME_WIDTH = 500;
-		final int FRAME_HEIGHT = 500;
+		frame = new JFrame();
+		box = new JPanel(new BoxLayout(box, BoxLayout.Y_AXIS));
+		option1 = new JPanel(new FlowLayout());
+		option2 = new JPanel(new FlowLayout());
+		option3 = new JPanel(new FlowLayout());
+		b1= new JComboBox(numberOfMarbles());
+		b2= new JComboBox(theme());
+		a1 = new JTextArea("Choose the number of marbles:");
+		a2 = new JTextArea("Choose the theme:");
+		button = new JButton("Confirm");
 		frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
-		box.setLayout(new BoxLayout(box, BoxLayout.Y_AXIS));
-		JComboBox b1= new JComboBox(numberOfMarbles());
-		JComboBox b2= new JComboBox(theme());
-		JTextArea a1 = new JTextArea("Choose the number of marbles");
-		JTextArea a2 = new JTextArea("Choose the theme");
-		JButton button = new JButton("Confirm");
+	}
+	
+	public void drawFrame()
+	{
+		b1.setPreferredSize(new Dimension(75,25));
+		b2.setPreferredSize(new Dimension(100,25));
+		a1.setBackground(Color.LIGHT_GRAY);
+		a2.setBackground(Color.yellow);
+		a1.setFont(new Font("Helvetica", Font.BOLD, 18));
+		a2.setFont(new Font("Helvetica", Font.BOLD, 18));
+		button.setFont(new Font("Helvetica", Font.BOLD, 18));
 		option1.add(a1);
 		option1.add(b1);
 		option2.add(a2);
 		option2.add(b2);
+		option3.add(button,BorderLayout.CENTER);
 		box.add(option1);
 		box.add(option2);
-		box.add(button);
+		box.add(option3);
 		frame.add(box);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//remove later
 		frame.pack();
 		frame.setVisible(true);
 	}
 	
-	public static Integer[] numberOfMarbles()
+	public Integer[] numberOfMarbles()
 	{
 		Integer[] marble = {3,4};
 		return marble;
 	}
 	
-	public static String[] theme()
+	public String[] theme()
 	{
 		String[] t = {"Metal","Wood"};
 		return t;
