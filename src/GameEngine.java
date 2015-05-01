@@ -44,6 +44,9 @@ public class GameEngine implements Iterator<Pit> {
 			return list.get(++position);
 	}
 
-	
-	
+	@Override
+	public void remove()
+	{
+		//No need to remove any pits
+	}
 }
