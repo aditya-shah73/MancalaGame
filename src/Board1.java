@@ -1,20 +1,7 @@
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.GridLayout;
-import java.awt.Image;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.SwingUtilities;
-import javax.swing.WindowConstants;
-
+import java.awt.*;
+import java.io.*;
+import javax.imageio.*;
+import javax.swing.*;
 import java.awt.Font;
 
 public class Board1 implements Board{
@@ -24,7 +11,7 @@ public class Board1 implements Board{
 	}
 
 	public Board1 prepare() {
-		
+
 		JPanel topPanel = new JPanel();
 		topPanel.setLayout(new BorderLayout());
 		//------------------------------------------------------
@@ -47,9 +34,9 @@ public class Board1 implements Board{
 		//------------------------------------------------------
 		JButton confirm1 = new JButton("CONFIRM");
 		buttonPanel1.add(confirm1, BorderLayout.WEST);
-				
+
 		// --------------------------------------------------------------------------------------------------------------------------------
-		
+
 		JPanel bottomPanel = new JPanel();	
 		bottomPanel.setLayout(new BorderLayout());
 		//------------------------------------------------------
@@ -72,12 +59,12 @@ public class Board1 implements Board{
 		//------------------------------------------------------
 		JButton confirm2 = new JButton("CONFIRM");
 		buttonPanel2.add(confirm2, BorderLayout.WEST);
-				
+
 		// --------------------------------------------------------------------------------------------------------------------------------	
-	
-				JPanel boardPanel = new JPanel();
-				boardPanel.setPreferredSize(new Dimension(1000, 224));
-				boardPanel.setLayout(new BorderLayout());
+
+		JPanel boardPanel = new JPanel();
+		boardPanel.setPreferredSize(new Dimension(1000, 224));
+		boardPanel.setLayout(new BorderLayout());
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -89,25 +76,25 @@ public class Board1 implements Board{
 				super.paintComponent(g);
 				g.drawImage(storeImageLeft.getScaledInstance(125, 224, 0), 0,
 						0, null); // -------------------> LEFT STORE IMAGE SIZE
-									// AND LOCATION
+				// AND LOCATION
 
 			}
 		};
 		storePanelLeft.setPreferredSize(new Dimension(125, 224));
 		boardPanel.add(storePanelLeft, BorderLayout.WEST);
-		
+
 		//----------------------------------------------------
-				storePanelLeft.setLayout(new BorderLayout());
-				JPanel counterPanelLeft = new JPanel();
-				counterPanelLeft.setOpaque(false);
-				storePanelLeft.add(counterPanelLeft, BorderLayout.NORTH);
-				counterPanelLeft.setLayout(new BorderLayout());
-				JTextArea counterAreaLeft = new JTextArea("0");
-				counterAreaLeft.setOpaque(false);
-				counterPanelLeft.add(counterAreaLeft, BorderLayout.EAST);
-		
+		storePanelLeft.setLayout(new BorderLayout());
+		JPanel counterPanelLeft = new JPanel();
+		counterPanelLeft.setOpaque(false);
+		storePanelLeft.add(counterPanelLeft, BorderLayout.NORTH);
+		counterPanelLeft.setLayout(new BorderLayout());
+		JTextArea counterAreaLeft = new JTextArea("0");
+		counterAreaLeft.setOpaque(false);
+		counterPanelLeft.add(counterAreaLeft, BorderLayout.EAST);
+
 		//--------------------------------------------------------------------------------------------------------------------------------
-		
+
 		final Image storeImageRight = requestImage("Images/WoodStoreRight.png");
 		JPanel storePanelRight = new JPanel() {
 			@Override
@@ -118,19 +105,19 @@ public class Board1 implements Board{
 
 			}
 		};
-		
+
 		storePanelRight.setPreferredSize(new Dimension(125, 224));
 		boardPanel.add(storePanelRight, BorderLayout.EAST);
 
 		//----------------------------------------------------
-				storePanelRight.setLayout(new BorderLayout());
-				JPanel counterPanelRight = new JPanel();
-				counterPanelRight.setOpaque(false);
-				storePanelRight.add(counterPanelRight, BorderLayout.NORTH);
-				counterPanelRight.setLayout(new BorderLayout());
-				JTextArea counterAreaRight = new JTextArea("0");
-				counterAreaRight.setOpaque(false);
-				counterPanelRight.add(counterAreaRight, BorderLayout.EAST);
+		storePanelRight.setLayout(new BorderLayout());
+		JPanel counterPanelRight = new JPanel();
+		counterPanelRight.setOpaque(false);
+		storePanelRight.add(counterPanelRight, BorderLayout.NORTH);
+		counterPanelRight.setLayout(new BorderLayout());
+		JTextArea counterAreaRight = new JTextArea("0");
+		counterAreaRight.setOpaque(false);
+		counterPanelRight.add(counterAreaRight, BorderLayout.EAST);
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -140,7 +127,7 @@ public class Board1 implements Board{
 		boardPanel.add(pitPanel, BorderLayout.CENTER);
 
 		// --------------------------------------------------------------------------------------------------------------------------------
-		
+
 		final Image pit1Image = requestImage("Images/WoodPit1.png");
 		JPanel pit1 = new JPanel() {
 			@Override
@@ -160,7 +147,7 @@ public class Board1 implements Board{
 		JTextArea counterArea1 = new JTextArea("4");
 		counterArea1.setOpaque(false);
 		counterPanel1.add(counterArea1, BorderLayout.EAST);
-		
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit2Image = requestImage("Images/WoodPit2.png");
@@ -174,15 +161,15 @@ public class Board1 implements Board{
 			}
 		};
 		//----------------------------------------------------
-				pit2.setLayout(new BorderLayout());
-				JPanel counterPanel2 = new JPanel();
-				counterPanel2.setOpaque(false);
-				pit2.add(counterPanel2, BorderLayout.NORTH);
-				counterPanel2.setLayout(new BorderLayout());
-				JTextArea counterArea2 = new JTextArea("4");
-				counterArea2.setOpaque(false);
-				counterPanel2.add(counterArea2, BorderLayout.EAST);
-	
+		pit2.setLayout(new BorderLayout());
+		JPanel counterPanel2 = new JPanel();
+		counterPanel2.setOpaque(false);
+		pit2.add(counterPanel2, BorderLayout.NORTH);
+		counterPanel2.setLayout(new BorderLayout());
+		JTextArea counterArea2 = new JTextArea("4");
+		counterArea2.setOpaque(false);
+		counterPanel2.add(counterArea2, BorderLayout.EAST);
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit3Image = requestImage("Images/WoodPit3.png");
@@ -207,7 +194,7 @@ public class Board1 implements Board{
 
 
 		//--------------------------------------------------------------------------------------------------------------------------------
-		
+
 		final Image pit4Image = requestImage("Images/WoodPit4.png");
 		JPanel pit4 = new JPanel() {
 			@Override
@@ -219,15 +206,15 @@ public class Board1 implements Board{
 			}
 		};
 		//----------------------------------------------------
-				pit4.setLayout(new BorderLayout());
-				JPanel counterPanel4 = new JPanel();
-				counterPanel4.setOpaque(false);
-				pit4.add(counterPanel4, BorderLayout.NORTH);
-				counterPanel4.setLayout(new BorderLayout());
-				JTextArea counterArea4 = new JTextArea("4");
-				counterArea4.setOpaque(false);
-				counterPanel4.add(counterArea4, BorderLayout.EAST);
-		
+		pit4.setLayout(new BorderLayout());
+		JPanel counterPanel4 = new JPanel();
+		counterPanel4.setOpaque(false);
+		pit4.add(counterPanel4, BorderLayout.NORTH);
+		counterPanel4.setLayout(new BorderLayout());
+		JTextArea counterArea4 = new JTextArea("4");
+		counterArea4.setOpaque(false);
+		counterPanel4.add(counterArea4, BorderLayout.EAST);
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit5Image = requestImage("Images/WoodPit5.png");
@@ -241,15 +228,15 @@ public class Board1 implements Board{
 			}
 		};
 		//----------------------------------------------------
-				pit5.setLayout(new BorderLayout());
-				JPanel counterPanel5 = new JPanel();
-				counterPanel5.setOpaque(false);
-				pit5.add(counterPanel5, BorderLayout.NORTH);
-				counterPanel5.setLayout(new BorderLayout());
-				JTextArea counterArea5 = new JTextArea("4");
-				counterArea5.setOpaque(false);
-				counterPanel5.add(counterArea5, BorderLayout.EAST);
-		
+		pit5.setLayout(new BorderLayout());
+		JPanel counterPanel5 = new JPanel();
+		counterPanel5.setOpaque(false);
+		pit5.add(counterPanel5, BorderLayout.NORTH);
+		counterPanel5.setLayout(new BorderLayout());
+		JTextArea counterArea5 = new JTextArea("4");
+		counterArea5.setOpaque(false);
+		counterPanel5.add(counterArea5, BorderLayout.EAST);
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit6Image = requestImage("Images/WoodPit6.png");
@@ -263,15 +250,15 @@ public class Board1 implements Board{
 			}
 		};
 		//----------------------------------------------------
-				pit6.setLayout(new BorderLayout());
-				JPanel counterPanel6 = new JPanel();
-				counterPanel6.setOpaque(false);
-				pit6.add(counterPanel6, BorderLayout.NORTH);
-				counterPanel6.setLayout(new BorderLayout());
-				JTextArea counterArea6 = new JTextArea("4");
-				counterArea6.setOpaque(false);
-				counterPanel6.add(counterArea6, BorderLayout.EAST);
-		
+		pit6.setLayout(new BorderLayout());
+		JPanel counterPanel6 = new JPanel();
+		counterPanel6.setOpaque(false);
+		pit6.add(counterPanel6, BorderLayout.NORTH);
+		counterPanel6.setLayout(new BorderLayout());
+		JTextArea counterArea6 = new JTextArea("4");
+		counterArea6.setOpaque(false);
+		counterPanel6.add(counterArea6, BorderLayout.EAST);
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit7Image = requestImage("Images/WoodPit7.png");
@@ -285,15 +272,15 @@ public class Board1 implements Board{
 			}
 		};
 		//----------------------------------------------------
-				pit7.setLayout(new BorderLayout());
-				JPanel counterPanel7 = new JPanel();
-				counterPanel7.setOpaque(false);
-				pit7.add(counterPanel7, BorderLayout.NORTH);
-				counterPanel7.setLayout(new BorderLayout());
-				JTextArea counterArea7 = new JTextArea("4");
-				counterArea7.setOpaque(false);
-				counterPanel7.add(counterArea7, BorderLayout.EAST);
-		
+		pit7.setLayout(new BorderLayout());
+		JPanel counterPanel7 = new JPanel();
+		counterPanel7.setOpaque(false);
+		pit7.add(counterPanel7, BorderLayout.NORTH);
+		counterPanel7.setLayout(new BorderLayout());
+		JTextArea counterArea7 = new JTextArea("4");
+		counterArea7.setOpaque(false);
+		counterPanel7.add(counterArea7, BorderLayout.EAST);
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit8Image = requestImage("Images/WoodPit8.png");
@@ -307,15 +294,15 @@ public class Board1 implements Board{
 			}
 		};
 		//----------------------------------------------------
-				pit8.setLayout(new BorderLayout());
-				JPanel counterPanel8 = new JPanel();
-				counterPanel8.setOpaque(false);
-				pit8.add(counterPanel8, BorderLayout.NORTH);
-				counterPanel8.setLayout(new BorderLayout());
-				JTextArea counterArea8 = new JTextArea("4");
-				counterArea8.setOpaque(false);
-				counterPanel8.add(counterArea8, BorderLayout.EAST);
-		
+		pit8.setLayout(new BorderLayout());
+		JPanel counterPanel8 = new JPanel();
+		counterPanel8.setOpaque(false);
+		pit8.add(counterPanel8, BorderLayout.NORTH);
+		counterPanel8.setLayout(new BorderLayout());
+		JTextArea counterArea8 = new JTextArea("4");
+		counterArea8.setOpaque(false);
+		counterPanel8.add(counterArea8, BorderLayout.EAST);
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit9Image = requestImage("Images/WoodPit9.png");
@@ -329,15 +316,15 @@ public class Board1 implements Board{
 			}
 		};
 		//----------------------------------------------------
-				pit9.setLayout(new BorderLayout());
-				JPanel counterPanel9 = new JPanel();
-				counterPanel9.setOpaque(false);
-				pit9.add(counterPanel9, BorderLayout.NORTH);
-				counterPanel9.setLayout(new BorderLayout());
-				JTextArea counterArea9 = new JTextArea("4");
-				counterArea9.setOpaque(false);
-				counterPanel9.add(counterArea9, BorderLayout.EAST);
-		
+		pit9.setLayout(new BorderLayout());
+		JPanel counterPanel9 = new JPanel();
+		counterPanel9.setOpaque(false);
+		pit9.add(counterPanel9, BorderLayout.NORTH);
+		counterPanel9.setLayout(new BorderLayout());
+		JTextArea counterArea9 = new JTextArea("4");
+		counterArea9.setOpaque(false);
+		counterPanel9.add(counterArea9, BorderLayout.EAST);
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit10Image = requestImage("Images/WoodPit10.png");
@@ -351,15 +338,15 @@ public class Board1 implements Board{
 			}
 		};
 		//----------------------------------------------------
-				pit10.setLayout(new BorderLayout());
-				JPanel counterPanel10 = new JPanel();
-				counterPanel10.setOpaque(false);
-				pit10.add(counterPanel10, BorderLayout.NORTH);
-				counterPanel10.setLayout(new BorderLayout());
-				JTextArea counterArea10 = new JTextArea("4");
-				counterArea10.setOpaque(false);
-				counterPanel10.add(counterArea10, BorderLayout.EAST);
-		
+		pit10.setLayout(new BorderLayout());
+		JPanel counterPanel10 = new JPanel();
+		counterPanel10.setOpaque(false);
+		pit10.add(counterPanel10, BorderLayout.NORTH);
+		counterPanel10.setLayout(new BorderLayout());
+		JTextArea counterArea10 = new JTextArea("4");
+		counterArea10.setOpaque(false);
+		counterPanel10.add(counterArea10, BorderLayout.EAST);
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit11Image = requestImage("Images/WoodPit11.png");
@@ -373,15 +360,15 @@ public class Board1 implements Board{
 			}
 		};
 		//----------------------------------------------------
-				pit11.setLayout(new BorderLayout());
-				JPanel counterPanel11 = new JPanel();
-				counterPanel11.setOpaque(false);
-				pit11.add(counterPanel11, BorderLayout.NORTH);
-				counterPanel11.setLayout(new BorderLayout());
-				JTextArea counterArea11 = new JTextArea("4");
-				counterArea11.setOpaque(false);
-				counterPanel11.add(counterArea11, BorderLayout.EAST);
-		
+		pit11.setLayout(new BorderLayout());
+		JPanel counterPanel11 = new JPanel();
+		counterPanel11.setOpaque(false);
+		pit11.add(counterPanel11, BorderLayout.NORTH);
+		counterPanel11.setLayout(new BorderLayout());
+		JTextArea counterArea11 = new JTextArea("4");
+		counterArea11.setOpaque(false);
+		counterPanel11.add(counterArea11, BorderLayout.EAST);
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit12Image = requestImage("Images/WoodPit12.png");
@@ -403,7 +390,7 @@ public class Board1 implements Board{
 		JTextArea counterArea12 = new JTextArea("4");
 		counterArea12.setOpaque(false);
 		counterPanel12.add(counterArea12, BorderLayout.EAST);
-		
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		pitPanel.setLayout(new GridLayout(2, 6));
@@ -419,8 +406,8 @@ public class Board1 implements Board{
 		pitPanel.add(pit10);
 		pitPanel.add(pit11);
 		pitPanel.add(pit12);
-		
-		
+
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		JFrame frame = new JFrame("Let the Mancala Begin!");
@@ -431,7 +418,7 @@ public class Board1 implements Board{
 		frame.add(topPanel, BorderLayout.NORTH);
 		frame.add(bottomPanel, BorderLayout.SOUTH);
 		frame.setBackground(Color.WHITE);
-        frame.pack();
+		frame.pack();
 		frame.setVisible(true);
 		return this;
 	}
