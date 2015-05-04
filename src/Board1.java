@@ -96,6 +96,16 @@ public class Board1 implements Board{
 		storePanelLeft.setPreferredSize(new Dimension(125, 224));
 		boardPanel.add(storePanelLeft, BorderLayout.WEST);
 		
+		//----------------------------------------------------
+				storePanelLeft.setLayout(new BorderLayout());
+				JPanel counterPanelLeft = new JPanel();
+				counterPanelLeft.setOpaque(false);
+				storePanelLeft.add(counterPanelLeft, BorderLayout.NORTH);
+				counterPanelLeft.setLayout(new BorderLayout());
+				JTextArea counterAreaLeft = new JTextArea("0");
+				counterAreaLeft.setOpaque(false);
+				counterPanelLeft.add(counterAreaLeft, BorderLayout.EAST);
+		
 		//--------------------------------------------------------------------------------------------------------------------------------
 		
 		final Image storeImageRight = requestImage("Images/WoodStoreRight.png");
@@ -111,6 +121,16 @@ public class Board1 implements Board{
 		
 		storePanelRight.setPreferredSize(new Dimension(125, 224));
 		boardPanel.add(storePanelRight, BorderLayout.EAST);
+
+		//----------------------------------------------------
+				storePanelRight.setLayout(new BorderLayout());
+				JPanel counterPanelRight = new JPanel();
+				counterPanelRight.setOpaque(false);
+				storePanelRight.add(counterPanelRight, BorderLayout.NORTH);
+				counterPanelRight.setLayout(new BorderLayout());
+				JTextArea counterAreaRight = new JTextArea("0");
+				counterAreaRight.setOpaque(false);
+				counterPanelRight.add(counterAreaRight, BorderLayout.EAST);
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
