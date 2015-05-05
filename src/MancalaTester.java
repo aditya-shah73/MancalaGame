@@ -10,8 +10,8 @@ public class MancalaTester {
 		wood.makeBoard();
 		//marble.makeBoard();
 		
-		Settings s = new Settings();
-		s.drawFrame();
+		//Settings s = new Settings();
+		//s.drawFrame();
 	    }
 
 }
