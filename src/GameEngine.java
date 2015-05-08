@@ -1,4 +1,6 @@
 import java.util.*;
+
+import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 public class GameEngine {
 	
@@ -80,5 +82,10 @@ public class GameEngine {
 	
 	public void attach(ChangeListener l){
 		listeners.add(l);
+	}
+	
+	public void update(){
+		for(ChangeListener l  : listeners)
+			l.stateChanged(new ChangeEvent(this));
 	}
 }
