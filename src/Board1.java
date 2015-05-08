@@ -1,10 +1,15 @@
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.*;
+import java.util.ArrayList;
+
 import javax.imageio.*;
 import javax.swing.*;
 
 public class Board1 extends JPanel implements Board  
 {	
+	ArrayList<JPanel> pitList;
 	JPanel pit1;
 	JPanel pit2;
 	JPanel pit3;
@@ -17,10 +22,12 @@ public class Board1 extends JPanel implements Board
 	JPanel pit10;
 	JPanel pit11;
 	JPanel pit12;
+	GameEngine g;
 
-	public Board1() 
+	public Board1(GameEngine ge) 
 	{
-
+		g = ge;
+		pitList = new ArrayList<JPanel>();
 	}
 
 	public Board1 prepare() 
@@ -406,7 +413,7 @@ public class Board1 extends JPanel implements Board
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				new Board1().prepare();
+				new Board1(g).prepare();
 
 			}
 		});
@@ -420,5 +427,33 @@ public class Board1 extends JPanel implements Board
 		thePanel.add(mar.makeMarble());
 
 
+	}
+
+	@Override
+	public void addListeners() {
+		// TODO Auto-generated method stub
+		for(JPanel j : pitList){
+			j.addMouseListener(new MouseListener(){
+
+				@Override
+				public void mouseClicked(MouseEvent arg0) {
+					System.out.println((arg0.getComponent().getName()));
+					g.update();
+				}
+
+				@Override
+				public void mouseEntered(MouseEvent arg0) {}
+
+				@Override
+				public void mouseExited(MouseEvent arg0) {}
+
+				@Override
+				public void mousePressed(MouseEvent arg0) {}
+
+				@Override
+				public void mouseReleased(MouseEvent arg0) {}
+				
+			});
+		}
 	}
 }

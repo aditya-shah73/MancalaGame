@@ -12,4 +12,5 @@ public interface Board
 	public Image requestImage(String imageName);
 	public void makeBoard();
 	public void addMarbleToBoard(JPanel panel);
+	public void addListeners();
 }

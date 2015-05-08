@@ -410,4 +410,10 @@ public class Board2 extends JPanel implements Board  {
 
 
 	}
+
+	@Override
+	public void addListeners() {
+		// TODO Auto-generated method stub
+		
+	}
 }

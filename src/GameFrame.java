@@ -22,7 +22,8 @@ public class GameFrame extends JFrame implements ChangeListener
 	
 	public GameFrame (GameEngine ge)
 	{
-		panel1 = new Board1();
+		e = ge;
+		panel1 = new Board1(e);
 		panel1.prepare();
 		panel1.addMarbleToBoard(panel1.pit1);
 		panel2 = new Board2();
@@ -43,7 +44,6 @@ public class GameFrame extends JFrame implements ChangeListener
 		confirm2 = new JButton("CONFIRM");
 		undo2 = new JButton("UNDO");
 		
-		e = ge;
 		e.attach(this);
 		drawFrame();
 	}
