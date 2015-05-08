@@ -1,114 +1,105 @@
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.GridLayout;
-import java.awt.Image;
-import java.io.File;
-import java.io.IOException;
+import java.awt.*;
+import java.io.*;
 
-import javax.imageio.ImageIO;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.SwingUtilities;
-import javax.swing.WindowConstants;
+import javax.imageio.*;
+import javax.swing.*;
 
 import java.awt.Font;
 
-public class Board2 implements Board{
+public class Board2 extends JPanel implements Board  {
+	
+	JPanel pit1;
 
 	public Board2() {
 
 	}
 
 	public Board2 prepare() {
-		
-		JPanel topPanel = new JPanel();
-		topPanel.setLayout(new BorderLayout());
-		//------------------------------------------------------
-		JPanel textPanel1 = new JPanel();
-		textPanel1.setBackground(Color.WHITE);
-		topPanel.add(textPanel1, BorderLayout.NORTH);
-		//------------------------------------------------------
-		JPanel buttonPanel1 = new JPanel();
-		buttonPanel1.setBackground(Color.WHITE);
-		topPanel.add(buttonPanel1, BorderLayout.SOUTH);
-		//------------------------------------------------------
-		JTextArea player1Area = new JTextArea("PLAYER 1");
-		player1Area.setEditable(false); 
-		player1Area.setOpaque(false);
-		player1Area.setFont(new Font("Lucida Blackletter", Font.BOLD, 30));
-		textPanel1.add(player1Area, BorderLayout.CENTER);
-		//------------------------------------------------------		
-		JButton undo1 = new JButton("UNDO");
-		buttonPanel1.add(undo1, BorderLayout.EAST);
-		//------------------------------------------------------
-		JButton confirm1 = new JButton("CONFIRM");
-		buttonPanel1.add(confirm1, BorderLayout.WEST);
-				
+//
+//		JPanel topPanel = new JPanel();
+//		topPanel.setLayout(new BorderLayout());
+//		//------------------------------------------------------
+//		JPanel textPanel1 = new JPanel();
+//		textPanel1.setBackground(Color.WHITE);
+//		topPanel.add(textPanel1, BorderLayout.NORTH);
+//		//------------------------------------------------------
+//		JPanel buttonPanel1 = new JPanel();
+//		buttonPanel1.setBackground(Color.WHITE);
+//		topPanel.add(buttonPanel1, BorderLayout.SOUTH);
+//		//------------------------------------------------------
+//		JTextArea player1Area = new JTextArea("PLAYER 1");
+//		player1Area.setEditable(false); 
+//		player1Area.setOpaque(false);
+//		player1Area.setFont(new Font("Lucida Blackletter", Font.BOLD, 30));
+//		textPanel1.add(player1Area, BorderLayout.CENTER);
+//		//------------------------------------------------------		
+//		JButton undo1 = new JButton("UNDO");
+//		buttonPanel1.add(undo1, BorderLayout.EAST);
+//		//------------------------------------------------------
+//		JButton confirm1 = new JButton("CONFIRM");
+//		buttonPanel1.add(confirm1, BorderLayout.WEST);
+
 		// --------------------------------------------------------------------------------------------------------------------------------
-		
-		JPanel bottomPanel = new JPanel();	
-		bottomPanel.setLayout(new BorderLayout());
-		//------------------------------------------------------
-		JPanel textPanel2 = new JPanel();
-		textPanel2.setBackground(Color.WHITE);
-		bottomPanel.add(textPanel2, BorderLayout.SOUTH);
-		//------------------------------------------------------
-		JPanel buttonPanel2 = new JPanel();
-		buttonPanel2.setBackground(Color.WHITE);
-		bottomPanel.add(buttonPanel2, BorderLayout.NORTH);
-		//------------------------------------------------------
-		JTextArea player2Area = new JTextArea("PLAYER 2");
-		player2Area.setEditable(false); 
-		player2Area.setOpaque(false);
-		player2Area.setFont(new Font("Lucida Blackletter", Font.BOLD, 30));
-		textPanel2.add(player2Area, BorderLayout.CENTER);
-		//------------------------------------------------------		
-		JButton undo2 = new JButton("UNDO");
-		buttonPanel2.add(undo2, BorderLayout.EAST);
-		//------------------------------------------------------
-		JButton confirm2 = new JButton("CONFIRM");
-		buttonPanel2.add(confirm2, BorderLayout.WEST);
-				
+
+//		JPanel bottomPanel = new JPanel();	
+//		bottomPanel.setLayout(new BorderLayout());
+//		//------------------------------------------------------
+//		JPanel textPanel2 = new JPanel();
+//		textPanel2.setBackground(Color.WHITE);
+//		bottomPanel.add(textPanel2, BorderLayout.SOUTH);
+//		//------------------------------------------------------
+//		JPanel buttonPanel2 = new JPanel();
+//		buttonPanel2.setBackground(Color.WHITE);
+//		bottomPanel.add(buttonPanel2, BorderLayout.NORTH);
+//		//------------------------------------------------------
+//		JTextArea player2Area = new JTextArea("PLAYER 2");
+//		player2Area.setEditable(false); 
+//		player2Area.setOpaque(false);
+//		player2Area.setFont(new Font("Lucida Blackletter", Font.BOLD, 30));
+//		textPanel2.add(player2Area, BorderLayout.CENTER);
+//		//------------------------------------------------------		
+//		JButton undo2 = new JButton("UNDO");
+//		buttonPanel2.add(undo2, BorderLayout.EAST);
+//		//------------------------------------------------------
+//		JButton confirm2 = new JButton("CONFIRM");
+//		buttonPanel2.add(confirm2, BorderLayout.WEST);
+
 		// --------------------------------------------------------------------------------------------------------------------------------	
-	
-				JPanel boardPanel = new JPanel();
-				boardPanel.setPreferredSize(new Dimension(1000, 224));
-				boardPanel.setLayout(new BorderLayout());
+
+		JPanel boardPanel = new JPanel();
+		boardPanel.setPreferredSize(new Dimension(1000, 224));
+		boardPanel.setLayout(new BorderLayout());
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
 
-		final Image storeImageLeft = requestImage("Images/CeramicStoreLeft.png");
+		final Image storeImageLeft = requestImage("Images/ceramicStoreLeft.png");
 		JPanel storePanelLeft = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(storeImageLeft.getScaledInstance(125, 224, 0), 0,
 						0, null); // -------------------> LEFT STORE IMAGE SIZE
-									// AND LOCATION
+				// AND LOCATION
 
 			}
 		};
 		storePanelLeft.setPreferredSize(new Dimension(125, 224));
 		boardPanel.add(storePanelLeft, BorderLayout.WEST);
-		
+
 		//----------------------------------------------------
-				storePanelLeft.setLayout(new BorderLayout());
-				JPanel counterPanelLeft = new JPanel();
-				counterPanelLeft.setOpaque(false);
-				storePanelLeft.add(counterPanelLeft, BorderLayout.NORTH);
-				counterPanelLeft.setLayout(new BorderLayout());
-				JTextArea counterAreaLeft = new JTextArea("0");
-				counterAreaLeft.setOpaque(false);
-				counterPanelLeft.add(counterAreaLeft, BorderLayout.EAST);
-		
+		storePanelLeft.setLayout(new BorderLayout());
+		JPanel counterPanelLeft = new JPanel();
+		counterPanelLeft.setOpaque(false);
+		storePanelLeft.add(counterPanelLeft, BorderLayout.NORTH);
+		counterPanelLeft.setLayout(new BorderLayout());
+		JTextArea counterAreaLeft = new JTextArea("0");
+		counterAreaLeft.setOpaque(false);
+		counterPanelLeft.add(counterAreaLeft, BorderLayout.EAST);
+
 		//--------------------------------------------------------------------------------------------------------------------------------
-		
-		final Image storeImageRight = requestImage("Images/CeramicStoreRight.png");
+
+		final Image storeImageRight = requestImage("Images/ceramicStoreRight.png");
 		JPanel storePanelRight = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -118,19 +109,19 @@ public class Board2 implements Board{
 
 			}
 		};
-		
+
 		storePanelRight.setPreferredSize(new Dimension(125, 224));
 		boardPanel.add(storePanelRight, BorderLayout.EAST);
 
 		//----------------------------------------------------
-				storePanelRight.setLayout(new BorderLayout());
-				JPanel counterPanelRight = new JPanel();
-				counterPanelRight.setOpaque(false);
-				storePanelRight.add(counterPanelRight, BorderLayout.NORTH);
-				counterPanelRight.setLayout(new BorderLayout());
-				JTextArea counterAreaRight = new JTextArea("0");
-				counterAreaRight.setOpaque(false);
-				counterPanelRight.add(counterAreaRight, BorderLayout.EAST);
+		storePanelRight.setLayout(new BorderLayout());
+		JPanel counterPanelRight = new JPanel();
+		counterPanelRight.setOpaque(false);
+		storePanelRight.add(counterPanelRight, BorderLayout.NORTH);
+		counterPanelRight.setLayout(new BorderLayout());
+		JTextArea counterAreaRight = new JTextArea("0");
+		counterAreaRight.setOpaque(false);
+		counterPanelRight.add(counterAreaRight, BorderLayout.EAST);
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -140,9 +131,9 @@ public class Board2 implements Board{
 		boardPanel.add(pitPanel, BorderLayout.CENTER);
 
 		// --------------------------------------------------------------------------------------------------------------------------------
-		
-		final Image pit1Image = requestImage("Images/CeramicPit1.png");
-		JPanel pit1 = new JPanel() {
+
+		final Image pit1Image = requestImage("Images/ceramicPit1.png");
+		this.pit1 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
 				super.paintComponent(g);
@@ -160,10 +151,10 @@ public class Board2 implements Board{
 		JTextArea counterArea1 = new JTextArea("4");
 		counterArea1.setOpaque(false);
 		counterPanel1.add(counterArea1, BorderLayout.EAST);
-		
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit2Image = requestImage("Images/CeramicPit2.png");
+		final Image pit2Image = requestImage("Images/ceramicPit2.png");
 		JPanel pit2 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -174,18 +165,18 @@ public class Board2 implements Board{
 			}
 		};
 		//----------------------------------------------------
-				pit2.setLayout(new BorderLayout());
-				JPanel counterPanel2 = new JPanel();
-				counterPanel2.setOpaque(false);
-				pit2.add(counterPanel2, BorderLayout.NORTH);
-				counterPanel2.setLayout(new BorderLayout());
-				JTextArea counterArea2 = new JTextArea("4");
-				counterArea2.setOpaque(false);
-				counterPanel2.add(counterArea2, BorderLayout.EAST);
-	
+		pit2.setLayout(new BorderLayout());
+		JPanel counterPanel2 = new JPanel();
+		counterPanel2.setOpaque(false);
+		pit2.add(counterPanel2, BorderLayout.NORTH);
+		counterPanel2.setLayout(new BorderLayout());
+		JTextArea counterArea2 = new JTextArea("4");
+		counterArea2.setOpaque(false);
+		counterPanel2.add(counterArea2, BorderLayout.EAST);
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit3Image = requestImage("Images/CeramicPit3.png");
+		final Image pit3Image = requestImage("Images/ceramicPit3.png");
 		JPanel pit3 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -207,8 +198,8 @@ public class Board2 implements Board{
 
 
 		//--------------------------------------------------------------------------------------------------------------------------------
-		
-		final Image pit4Image = requestImage("Images/CeramicPit4.png");
+
+		final Image pit4Image = requestImage("Images/ceramicPit4.png");
 		JPanel pit4 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -219,18 +210,18 @@ public class Board2 implements Board{
 			}
 		};
 		//----------------------------------------------------
-				pit4.setLayout(new BorderLayout());
-				JPanel counterPanel4 = new JPanel();
-				counterPanel4.setOpaque(false);
-				pit4.add(counterPanel4, BorderLayout.NORTH);
-				counterPanel4.setLayout(new BorderLayout());
-				JTextArea counterArea4 = new JTextArea("4");
-				counterArea4.setOpaque(false);
-				counterPanel4.add(counterArea4, BorderLayout.EAST);
-		
+		pit4.setLayout(new BorderLayout());
+		JPanel counterPanel4 = new JPanel();
+		counterPanel4.setOpaque(false);
+		pit4.add(counterPanel4, BorderLayout.NORTH);
+		counterPanel4.setLayout(new BorderLayout());
+		JTextArea counterArea4 = new JTextArea("4");
+		counterArea4.setOpaque(false);
+		counterPanel4.add(counterArea4, BorderLayout.EAST);
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit5Image = requestImage("Images/CeramicPit5.png");
+		final Image pit5Image = requestImage("Images/ceramicPit5.png");
 		JPanel pit5 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -241,18 +232,18 @@ public class Board2 implements Board{
 			}
 		};
 		//----------------------------------------------------
-				pit5.setLayout(new BorderLayout());
-				JPanel counterPanel5 = new JPanel();
-				counterPanel5.setOpaque(false);
-				pit5.add(counterPanel5, BorderLayout.NORTH);
-				counterPanel5.setLayout(new BorderLayout());
-				JTextArea counterArea5 = new JTextArea("4");
-				counterArea5.setOpaque(false);
-				counterPanel5.add(counterArea5, BorderLayout.EAST);
-		
+		pit5.setLayout(new BorderLayout());
+		JPanel counterPanel5 = new JPanel();
+		counterPanel5.setOpaque(false);
+		pit5.add(counterPanel5, BorderLayout.NORTH);
+		counterPanel5.setLayout(new BorderLayout());
+		JTextArea counterArea5 = new JTextArea("4");
+		counterArea5.setOpaque(false);
+		counterPanel5.add(counterArea5, BorderLayout.EAST);
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit6Image = requestImage("Images/CeramicPit6.png");
+		final Image pit6Image = requestImage("Images/ceramicPit6.png");
 		JPanel pit6 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -263,18 +254,18 @@ public class Board2 implements Board{
 			}
 		};
 		//----------------------------------------------------
-				pit6.setLayout(new BorderLayout());
-				JPanel counterPanel6 = new JPanel();
-				counterPanel6.setOpaque(false);
-				pit6.add(counterPanel6, BorderLayout.NORTH);
-				counterPanel6.setLayout(new BorderLayout());
-				JTextArea counterArea6 = new JTextArea("4");
-				counterArea6.setOpaque(false);
-				counterPanel6.add(counterArea6, BorderLayout.EAST);
-		
+		pit6.setLayout(new BorderLayout());
+		JPanel counterPanel6 = new JPanel();
+		counterPanel6.setOpaque(false);
+		pit6.add(counterPanel6, BorderLayout.NORTH);
+		counterPanel6.setLayout(new BorderLayout());
+		JTextArea counterArea6 = new JTextArea("4");
+		counterArea6.setOpaque(false);
+		counterPanel6.add(counterArea6, BorderLayout.EAST);
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit7Image = requestImage("Images/CeramicPit7.png");
+		final Image pit7Image = requestImage("Images/ceramicPit7.png");
 		JPanel pit7 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -285,18 +276,18 @@ public class Board2 implements Board{
 			}
 		};
 		//----------------------------------------------------
-				pit7.setLayout(new BorderLayout());
-				JPanel counterPanel7 = new JPanel();
-				counterPanel7.setOpaque(false);
-				pit7.add(counterPanel7, BorderLayout.NORTH);
-				counterPanel7.setLayout(new BorderLayout());
-				JTextArea counterArea7 = new JTextArea("4");
-				counterArea7.setOpaque(false);
-				counterPanel7.add(counterArea7, BorderLayout.EAST);
-		
+		pit7.setLayout(new BorderLayout());
+		JPanel counterPanel7 = new JPanel();
+		counterPanel7.setOpaque(false);
+		pit7.add(counterPanel7, BorderLayout.NORTH);
+		counterPanel7.setLayout(new BorderLayout());
+		JTextArea counterArea7 = new JTextArea("4");
+		counterArea7.setOpaque(false);
+		counterPanel7.add(counterArea7, BorderLayout.EAST);
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit8Image = requestImage("Images/CeramicPit8.png");
+		final Image pit8Image = requestImage("Images/ceramicPit8.png");
 		JPanel pit8 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -307,18 +298,18 @@ public class Board2 implements Board{
 			}
 		};
 		//----------------------------------------------------
-				pit8.setLayout(new BorderLayout());
-				JPanel counterPanel8 = new JPanel();
-				counterPanel8.setOpaque(false);
-				pit8.add(counterPanel8, BorderLayout.NORTH);
-				counterPanel8.setLayout(new BorderLayout());
-				JTextArea counterArea8 = new JTextArea("4");
-				counterArea8.setOpaque(false);
-				counterPanel8.add(counterArea8, BorderLayout.EAST);
-		
+		pit8.setLayout(new BorderLayout());
+		JPanel counterPanel8 = new JPanel();
+		counterPanel8.setOpaque(false);
+		pit8.add(counterPanel8, BorderLayout.NORTH);
+		counterPanel8.setLayout(new BorderLayout());
+		JTextArea counterArea8 = new JTextArea("4");
+		counterArea8.setOpaque(false);
+		counterPanel8.add(counterArea8, BorderLayout.EAST);
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit9Image = requestImage("Images/CeramicPit9.png");
+		final Image pit9Image = requestImage("Images/ceramicPit9.png");
 		JPanel pit9 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -329,18 +320,18 @@ public class Board2 implements Board{
 			}
 		};
 		//----------------------------------------------------
-				pit9.setLayout(new BorderLayout());
-				JPanel counterPanel9 = new JPanel();
-				counterPanel9.setOpaque(false);
-				pit9.add(counterPanel9, BorderLayout.NORTH);
-				counterPanel9.setLayout(new BorderLayout());
-				JTextArea counterArea9 = new JTextArea("4");
-				counterArea9.setOpaque(false);
-				counterPanel9.add(counterArea9, BorderLayout.EAST);
-		
+		pit9.setLayout(new BorderLayout());
+		JPanel counterPanel9 = new JPanel();
+		counterPanel9.setOpaque(false);
+		pit9.add(counterPanel9, BorderLayout.NORTH);
+		counterPanel9.setLayout(new BorderLayout());
+		JTextArea counterArea9 = new JTextArea("4");
+		counterArea9.setOpaque(false);
+		counterPanel9.add(counterArea9, BorderLayout.EAST);
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit10Image = requestImage("Images/CeramicPit10.png");
+		final Image pit10Image = requestImage("Images/ceramicPit10.png");
 		JPanel pit10 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -351,18 +342,18 @@ public class Board2 implements Board{
 			}
 		};
 		//----------------------------------------------------
-				pit10.setLayout(new BorderLayout());
-				JPanel counterPanel10 = new JPanel();
-				counterPanel10.setOpaque(false);
-				pit10.add(counterPanel10, BorderLayout.NORTH);
-				counterPanel10.setLayout(new BorderLayout());
-				JTextArea counterArea10 = new JTextArea("4");
-				counterArea10.setOpaque(false);
-				counterPanel10.add(counterArea10, BorderLayout.EAST);
-		
+		pit10.setLayout(new BorderLayout());
+		JPanel counterPanel10 = new JPanel();
+		counterPanel10.setOpaque(false);
+		pit10.add(counterPanel10, BorderLayout.NORTH);
+		counterPanel10.setLayout(new BorderLayout());
+		JTextArea counterArea10 = new JTextArea("4");
+		counterArea10.setOpaque(false);
+		counterPanel10.add(counterArea10, BorderLayout.EAST);
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit11Image = requestImage("Images/CeramicPit11.png");
+		final Image pit11Image = requestImage("Images/ceramicPit11.png");
 		JPanel pit11 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -373,18 +364,18 @@ public class Board2 implements Board{
 			}
 		};
 		//----------------------------------------------------
-				pit11.setLayout(new BorderLayout());
-				JPanel counterPanel11 = new JPanel();
-				counterPanel11.setOpaque(false);
-				pit11.add(counterPanel11, BorderLayout.NORTH);
-				counterPanel11.setLayout(new BorderLayout());
-				JTextArea counterArea11 = new JTextArea("4");
-				counterArea11.setOpaque(false);
-				counterPanel11.add(counterArea11, BorderLayout.EAST);
-		
+		pit11.setLayout(new BorderLayout());
+		JPanel counterPanel11 = new JPanel();
+		counterPanel11.setOpaque(false);
+		pit11.add(counterPanel11, BorderLayout.NORTH);
+		counterPanel11.setLayout(new BorderLayout());
+		JTextArea counterArea11 = new JTextArea("4");
+		counterArea11.setOpaque(false);
+		counterPanel11.add(counterArea11, BorderLayout.EAST);
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit12Image = requestImage("Images/CeramicPit12.png");
+		final Image pit12Image = requestImage("Images/ceramicPit12.png");
 		JPanel pit12 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
@@ -403,7 +394,7 @@ public class Board2 implements Board{
 		JTextArea counterArea12 = new JTextArea("4");
 		counterArea12.setOpaque(false);
 		counterPanel12.add(counterArea12, BorderLayout.EAST);
-		
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		pitPanel.setLayout(new GridLayout(2, 6));
@@ -419,20 +410,20 @@ public class Board2 implements Board{
 		pitPanel.add(pit10);
 		pitPanel.add(pit11);
 		pitPanel.add(pit12);
-		
-		
+
+
 		//--------------------------------------------------------------------------------------------------------------------------------
 
-		JFrame frame = new JFrame("Let the Mancala Begin!");
-		frame.setSize(1000, 500);// ------------------------------------------------------------------------> FRAME SIZE
-		frame.setLayout(new BorderLayout());
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.add(boardPanel, BorderLayout.CENTER);
-		frame.add(topPanel, BorderLayout.NORTH);
-		frame.add(bottomPanel, BorderLayout.SOUTH);
-		frame.setBackground(Color.WHITE);
-        frame.pack();
-		frame.setVisible(true);
+		
+		setSize(1000, 500);// ------------------------------------------------------------------------> FRAME SIZE
+		setLayout(new BorderLayout());
+		///setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		add(boardPanel, BorderLayout.CENTER);
+		//add(topPanel, BorderLayout.NORTH);
+		//add(bottomPanel, BorderLayout.SOUTH);
+		setBackground(Color.WHITE);
+		//pack();
+		setVisible(true);
 		return this;
 	}
 
@@ -455,5 +446,18 @@ public class Board2 implements Board{
 
 			}
 		});
+	}
+	
+	public void addMarbleToBoard(JPanel panel, int x, int y, int i)
+	{
+		Marble mar = new Marble();
+		JPanel thePanel = panel;
+		for(int numberOfMarbles= 0; numberOfMarbles <= i; numberOfMarbles++){
+			
+		
+		thePanel.add(mar.makeMarble());
+		
+		}
+		
 	}
 }
