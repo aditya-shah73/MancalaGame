@@ -1,7 +1,9 @@
 import java.awt.*;
 import java.io.*;
+
 import javax.imageio.*;
 import javax.swing.*;
+
 import java.awt.Font;
 
 public class Board1 implements Board{
@@ -442,5 +444,12 @@ public class Board1 implements Board{
 
 			}
 		});
+	}
+	
+	public void addMarbleToBoard(JPanel panel, int x, int y)
+	{
+		Marble mar = new Marble();
+		JPanel thePanel = panel;
+		thePanel.add(mar.makeMarble());
 	}
 }
