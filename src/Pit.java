@@ -1,13 +1,17 @@
 import java.util.ArrayList;
-
 public class Pit
 {
 	private ArrayList<Marble> storage;
-	public boolean isPit;
+	private boolean isStore;
+	private boolean isPlayer1;
 	int count;
+	Pit next;
+	int position;
 	
 	public Pit()
 	{
+		isPlayer1 = false;
+		isStore = false;
 		storage = new ArrayList<Marble>();
 		count = 0;
 	}
@@ -31,8 +35,21 @@ public class Pit
 		}
 	}
 	
-	public boolean isAPit()
+	public boolean isAStore()
 	{
-		return isPit;
+		return isStore;
+	}
+	
+	public void setAStore()
+	{
+		isStore = true;
+	}
+	
+	public boolean isPlayer1(){
+		return isPlayer1;
+	}
+	
+	public void setPlayer1(){
+		isPlayer1 = true;
 	}
 }
