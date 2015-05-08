@@ -1,88 +1,86 @@
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Font;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-
+import java.awt.*;
+import javax.swing.*;
+import javax.swing.event.*;
 
 public class GameFrame extends JFrame implements ChangeListener
 {
-
-	GameEngine e;
-	Board1 panel1 = new Board1();
-	JPanel panel2 = new Board2();
+	private GameEngine e;
+	private Board1 panel1;
+	private Board2 panel2;
+	private JPanel topPanel;
+	private JPanel textPanel1;
+	private JPanel buttonPanel1;
+	private JTextArea player1Area;
+	private JButton undo1;
+	private JButton confirm1;
+	private JPanel bottomPanel;
+	private JPanel textPanel2;
+	private JPanel buttonPanel2;
+	private JTextArea player2Area;
+	private JButton undo2;
+	private JButton confirm2;
 	
-	public GameFrame (GameEngine ge){
+	public GameFrame (GameEngine ge)
+	{
+		panel1 = new Board1();
+		panel1.prepare();
+		panel1.addMarbleToBoard(panel1.pit1);
+		panel2 = new Board2();
 		this.setLayout(new BorderLayout());
 		this.setTitle("Mancala Game");
+		
+		topPanel = new JPanel();
+		textPanel1 = new JPanel();
+		buttonPanel1 = new JPanel();
+		player1Area = new JTextArea("PLAYER 1");
+		confirm1 = new JButton("CONFIRM");
+		undo1 = new JButton("UNDO");
+
+		bottomPanel = new JPanel();
+		textPanel2 = new JPanel();
+		buttonPanel2 = new JPanel();
+		player2Area = new JTextArea("PLAYER 2");
+		confirm2 = new JButton("CONFIRM");
+		undo2 = new JButton("UNDO");
+		
 		e = ge;
 		e.attach(this);
 		drawFrame();
-		panel1.prepare();
-		panel1.addMarbleToBoard(panel1.pit1);
 	}
 	
-	public void drawFrame(){
-		JPanel topPanel = new JPanel();
+	public void drawFrame()
+	{
 		topPanel.setLayout(new BorderLayout());
-		//------------------------------------------------------
-		JPanel textPanel1 = new JPanel();
 		textPanel1.setBackground(Color.WHITE);
 		topPanel.add(textPanel1, BorderLayout.NORTH);
-		//------------------------------------------------------
-		JPanel buttonPanel1 = new JPanel();
 		buttonPanel1.setBackground(Color.WHITE);
 		topPanel.add(buttonPanel1, BorderLayout.SOUTH);
-		//------------------------------------------------------
-		JTextArea player1Area = new JTextArea("PLAYER 1");
 		player1Area.setEditable(false); 
 		player1Area.setOpaque(false);
 		player1Area.setFont(new Font("Lucida Blackletter", Font.BOLD, 30));
-		textPanel1.add(player1Area, BorderLayout.CENTER);
-		//------------------------------------------------------		
-		JButton undo1 = new JButton("UNDO");
+		textPanel1.add(player1Area, BorderLayout.CENTER);	
 		buttonPanel1.add(undo1, BorderLayout.EAST);
-		//------------------------------------------------------
-		JButton confirm1 = new JButton("CONFIRM");
 		buttonPanel1.add(confirm1, BorderLayout.WEST);
 		
-		// --------------------------------------------------------------------------------------------------------------------------------
-
-		JPanel bottomPanel = new JPanel();	
 		bottomPanel.setLayout(new BorderLayout());
-		//------------------------------------------------------
-		JPanel textPanel2 = new JPanel();
 		textPanel2.setBackground(Color.WHITE);
 		bottomPanel.add(textPanel2, BorderLayout.SOUTH);
-		//------------------------------------------------------
-		JPanel buttonPanel2 = new JPanel();
 		buttonPanel2.setBackground(Color.WHITE);
 		bottomPanel.add(buttonPanel2, BorderLayout.NORTH);
-		//------------------------------------------------------
-		JTextArea player2Area = new JTextArea("PLAYER 2");
 		player2Area.setEditable(false); 
 		player2Area.setOpaque(false);
 		player2Area.setFont(new Font("Lucida Blackletter", Font.BOLD, 30));
 		textPanel2.add(player2Area, BorderLayout.CENTER);
-		//------------------------------------------------------		
-		JButton undo2 = new JButton("UNDO");
 		buttonPanel2.add(undo2, BorderLayout.EAST);
-		//------------------------------------------------------
-		JButton confirm2 = new JButton("CONFIRM");
-		buttonPanel2.add(confirm2, BorderLayout.WEST);
-		
+		buttonPanel2.add(confirm2, BorderLayout.WEST);		
 		add(topPanel, BorderLayout.NORTH);
 		add(bottomPanel, BorderLayout.SOUTH);
 		add(panel1, BorderLayout.CENTER);
 	}
 	
 	@Override
-	public void stateChanged(ChangeEvent e) {
-		// TODO Auto-generated method stub
+	public void stateChanged(ChangeEvent e) 
+	{
+		
 	}
 }
