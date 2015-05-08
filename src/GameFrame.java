@@ -14,7 +14,7 @@ public class GameFrame extends JFrame implements ChangeListener
 {
 
 	GameEngine e;
-	JPanel panel1 = new Board1();
+	Board1 panel1 = new Board1();
 	JPanel panel2 = new Board2();
 	
 	public GameFrame (GameEngine ge){
@@ -22,6 +22,8 @@ public class GameFrame extends JFrame implements ChangeListener
 		this.setTitle("Mancala Game");
 		e = ge;
 		e.attach(this);
+		drawFrame();
+		panel1.prepare();
 	}
 	
 	public void drawFrame(){

@@ -19,6 +19,7 @@ public class GameEngine {
 	 */
 	public GameEngine(){
 		initiatePits();
+		listeners = new ArrayList<ChangeListener>();
 		
 		
 	}
