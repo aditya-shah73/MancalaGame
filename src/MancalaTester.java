@@ -10,6 +10,7 @@ public class MancalaTester {
 		frame.pack();
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setResizable(false);
 		//		
 //		Board1 wood = new Board1();	
 //		wood.makeBoard();

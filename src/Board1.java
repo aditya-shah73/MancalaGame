@@ -9,62 +9,24 @@ import java.awt.Font;
 public class Board1 extends JPanel implements Board  {
 	
 	JPanel pit1;
+	JPanel pit2;
+	JPanel pit3;
+	JPanel pit4;
+	JPanel pit5;
+	JPanel pit6;
+	JPanel pit7;
+	JPanel pit8;
+	JPanel pit9;
+	JPanel pit10;
+	JPanel pit11;
+	JPanel pit12;
+	
 
 	public Board1() {
 
 	}
 
 	public Board1 prepare() {
-//
-//		JPanel topPanel = new JPanel();
-//		topPanel.setLayout(new BorderLayout());
-//		//------------------------------------------------------
-//		JPanel textPanel1 = new JPanel();
-//		textPanel1.setBackground(Color.WHITE);
-//		topPanel.add(textPanel1, BorderLayout.NORTH);
-//		//------------------------------------------------------
-//		JPanel buttonPanel1 = new JPanel();
-//		buttonPanel1.setBackground(Color.WHITE);
-//		topPanel.add(buttonPanel1, BorderLayout.SOUTH);
-//		//------------------------------------------------------
-//		JTextArea player1Area = new JTextArea("PLAYER 1");
-//		player1Area.setEditable(false); 
-//		player1Area.setOpaque(false);
-//		player1Area.setFont(new Font("Lucida Blackletter", Font.BOLD, 30));
-//		textPanel1.add(player1Area, BorderLayout.CENTER);
-//		//------------------------------------------------------		
-//		JButton undo1 = new JButton("UNDO");
-//		buttonPanel1.add(undo1, BorderLayout.EAST);
-//		//------------------------------------------------------
-//		JButton confirm1 = new JButton("CONFIRM");
-//		buttonPanel1.add(confirm1, BorderLayout.WEST);
-
-		// --------------------------------------------------------------------------------------------------------------------------------
-
-//		JPanel bottomPanel = new JPanel();	
-//		bottomPanel.setLayout(new BorderLayout());
-//		//------------------------------------------------------
-//		JPanel textPanel2 = new JPanel();
-//		textPanel2.setBackground(Color.WHITE);
-//		bottomPanel.add(textPanel2, BorderLayout.SOUTH);
-//		//------------------------------------------------------
-//		JPanel buttonPanel2 = new JPanel();
-//		buttonPanel2.setBackground(Color.WHITE);
-//		bottomPanel.add(buttonPanel2, BorderLayout.NORTH);
-//		//------------------------------------------------------
-//		JTextArea player2Area = new JTextArea("PLAYER 2");
-//		player2Area.setEditable(false); 
-//		player2Area.setOpaque(false);
-//		player2Area.setFont(new Font("Lucida Blackletter", Font.BOLD, 30));
-//		textPanel2.add(player2Area, BorderLayout.CENTER);
-//		//------------------------------------------------------		
-//		JButton undo2 = new JButton("UNDO");
-//		buttonPanel2.add(undo2, BorderLayout.EAST);
-//		//------------------------------------------------------
-//		JButton confirm2 = new JButton("CONFIRM");
-//		buttonPanel2.add(confirm2, BorderLayout.WEST);
-
-		// --------------------------------------------------------------------------------------------------------------------------------	
 
 		JPanel boardPanel = new JPanel();
 		boardPanel.setPreferredSize(new Dimension(1000, 224));
@@ -155,7 +117,7 @@ public class Board1 extends JPanel implements Board  {
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit2Image = requestImage("Images/WoodPit2.png");
-		JPanel pit2 = new JPanel() {
+		pit2 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
 				super.paintComponent(g);
@@ -177,7 +139,7 @@ public class Board1 extends JPanel implements Board  {
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit3Image = requestImage("Images/WoodPit3.png");
-		JPanel pit3 = new JPanel() {
+		 pit3 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
 				super.paintComponent(g);
@@ -200,7 +162,7 @@ public class Board1 extends JPanel implements Board  {
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit4Image = requestImage("Images/WoodPit4.png");
-		JPanel pit4 = new JPanel() {
+		 pit4 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
 				super.paintComponent(g);
@@ -222,7 +184,7 @@ public class Board1 extends JPanel implements Board  {
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit5Image = requestImage("Images/WoodPit5.png");
-		JPanel pit5 = new JPanel() {
+		 pit5 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
 				super.paintComponent(g);
@@ -244,7 +206,7 @@ public class Board1 extends JPanel implements Board  {
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit6Image = requestImage("Images/WoodPit6.png");
-		JPanel pit6 = new JPanel() {
+		pit6 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
 				super.paintComponent(g);
@@ -266,7 +228,7 @@ public class Board1 extends JPanel implements Board  {
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit7Image = requestImage("Images/WoodPit7.png");
-		JPanel pit7 = new JPanel() {
+		pit7 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
 				super.paintComponent(g);
@@ -288,7 +250,7 @@ public class Board1 extends JPanel implements Board  {
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit8Image = requestImage("Images/WoodPit8.png");
-		JPanel pit8 = new JPanel() {
+		 pit8 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
 				super.paintComponent(g);
@@ -310,7 +272,7 @@ public class Board1 extends JPanel implements Board  {
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit9Image = requestImage("Images/WoodPit9.png");
-		JPanel pit9 = new JPanel() {
+		 pit9 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
 				super.paintComponent(g);
@@ -332,7 +294,7 @@ public class Board1 extends JPanel implements Board  {
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit10Image = requestImage("Images/WoodPit10.png");
-		JPanel pit10 = new JPanel() {
+		 pit10 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
 				super.paintComponent(g);
@@ -354,7 +316,7 @@ public class Board1 extends JPanel implements Board  {
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit11Image = requestImage("Images/WoodPit11.png");
-		JPanel pit11 = new JPanel() {
+		 pit11 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
 				super.paintComponent(g);
@@ -376,7 +338,7 @@ public class Board1 extends JPanel implements Board  {
 		//--------------------------------------------------------------------------------------------------------------------------------
 
 		final Image pit12Image = requestImage("Images/WoodPit12.png");
-		JPanel pit12 = new JPanel() {
+		 pit12 = new JPanel() {
 			@Override
 			protected void paintComponent(Graphics g) {
 				super.paintComponent(g);
@@ -448,16 +410,13 @@ public class Board1 extends JPanel implements Board  {
 		});
 	}
 	
-	public void addMarbleToBoard(JPanel panel, int x, int y, int i)
+	public void addMarbleToBoard(JPanel panel)
 	{
 		Marble mar = new Marble();
 		JPanel thePanel = panel;
-		for(int numberOfMarbles= 0; numberOfMarbles <= i; numberOfMarbles++){
-			
 		
 		thePanel.add(mar.makeMarble());
 		
-		}
 		
 	}
 }

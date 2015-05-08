@@ -15,56 +15,6 @@ public class Board2 extends JPanel implements Board  {
 	}
 
 	public Board2 prepare() {
-//
-//		JPanel topPanel = new JPanel();
-//		topPanel.setLayout(new BorderLayout());
-//		//------------------------------------------------------
-//		JPanel textPanel1 = new JPanel();
-//		textPanel1.setBackground(Color.WHITE);
-//		topPanel.add(textPanel1, BorderLayout.NORTH);
-//		//------------------------------------------------------
-//		JPanel buttonPanel1 = new JPanel();
-//		buttonPanel1.setBackground(Color.WHITE);
-//		topPanel.add(buttonPanel1, BorderLayout.SOUTH);
-//		//------------------------------------------------------
-//		JTextArea player1Area = new JTextArea("PLAYER 1");
-//		player1Area.setEditable(false); 
-//		player1Area.setOpaque(false);
-//		player1Area.setFont(new Font("Lucida Blackletter", Font.BOLD, 30));
-//		textPanel1.add(player1Area, BorderLayout.CENTER);
-//		//------------------------------------------------------		
-//		JButton undo1 = new JButton("UNDO");
-//		buttonPanel1.add(undo1, BorderLayout.EAST);
-//		//------------------------------------------------------
-//		JButton confirm1 = new JButton("CONFIRM");
-//		buttonPanel1.add(confirm1, BorderLayout.WEST);
-
-		// --------------------------------------------------------------------------------------------------------------------------------
-
-//		JPanel bottomPanel = new JPanel();	
-//		bottomPanel.setLayout(new BorderLayout());
-//		//------------------------------------------------------
-//		JPanel textPanel2 = new JPanel();
-//		textPanel2.setBackground(Color.WHITE);
-//		bottomPanel.add(textPanel2, BorderLayout.SOUTH);
-//		//------------------------------------------------------
-//		JPanel buttonPanel2 = new JPanel();
-//		buttonPanel2.setBackground(Color.WHITE);
-//		bottomPanel.add(buttonPanel2, BorderLayout.NORTH);
-//		//------------------------------------------------------
-//		JTextArea player2Area = new JTextArea("PLAYER 2");
-//		player2Area.setEditable(false); 
-//		player2Area.setOpaque(false);
-//		player2Area.setFont(new Font("Lucida Blackletter", Font.BOLD, 30));
-//		textPanel2.add(player2Area, BorderLayout.CENTER);
-//		//------------------------------------------------------		
-//		JButton undo2 = new JButton("UNDO");
-//		buttonPanel2.add(undo2, BorderLayout.EAST);
-//		//------------------------------------------------------
-//		JButton confirm2 = new JButton("CONFIRM");
-//		buttonPanel2.add(confirm2, BorderLayout.WEST);
-
-		// --------------------------------------------------------------------------------------------------------------------------------	
 
 		JPanel boardPanel = new JPanel();
 		boardPanel.setPreferredSize(new Dimension(1000, 224));
@@ -448,16 +398,16 @@ public class Board2 extends JPanel implements Board  {
 		});
 	}
 	
-	public void addMarbleToBoard(JPanel panel, int x, int y, int i)
+	public void addMarbleToBoard(JPanel panel)
 	{
 		Marble mar = new Marble();
 		JPanel thePanel = panel;
-		for(int numberOfMarbles= 0; numberOfMarbles <= i; numberOfMarbles++){
+		
 			
 		
 		thePanel.add(mar.makeMarble());
 		
-		}
+	
 		
 	}
 }

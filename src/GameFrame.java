@@ -24,6 +24,9 @@ public class GameFrame extends JFrame implements ChangeListener
 		e.attach(this);
 		drawFrame();
 		panel1.prepare();
+		panel1.addMarbleToBoard(panel1.pit1);
+		
+		
 	}
 	
 	public void drawFrame(){
