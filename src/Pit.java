@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+
 public class Pit
 {
 	private ArrayList<Marble> storage;
@@ -45,11 +46,13 @@ public class Pit
 		isStore = true;
 	}
 	
-	public boolean isPlayer1(){
+	public boolean isPlayer1()
+	{
 		return isPlayer1;
 	}
 	
-	public void setPlayer1(){
+	public void setPlayer1()
+	{
 		isPlayer1 = true;
 	}
 }

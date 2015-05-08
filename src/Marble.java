@@ -1,22 +1,13 @@
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
+import javax.swing.*;
 
 public class Marble
 {
-	public Marble()
-	{
-		
-	}
+	private ImageIcon marbleIcon;
 	
 	public JLabel makeMarble()
 	{
-		
-		
-		ImageIcon marbleIcon = new ImageIcon("Images/Marble.png");
-		
+		marbleIcon = new ImageIcon("Images/Marble.png");	
 		JLabel marbleLabel = new JLabel(marbleIcon);
-		
 		return marbleLabel;
-		
 	}
 }
