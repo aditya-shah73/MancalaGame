@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.Font;
 
 public class Board2 extends JPanel implements Board  {
-	
+
 	JPanel pit1;
 
 	public Board2() {
@@ -364,7 +364,7 @@ public class Board2 extends JPanel implements Board  {
 
 		//--------------------------------------------------------------------------------------------------------------------------------
 
-		
+
 		setSize(1000, 500);// ------------------------------------------------------------------------> FRAME SIZE
 		setLayout(new BorderLayout());
 		///setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -397,17 +397,17 @@ public class Board2 extends JPanel implements Board  {
 			}
 		});
 	}
-	
+
 	public void addMarbleToBoard(JPanel panel)
 	{
 		Marble mar = new Marble();
 		JPanel thePanel = panel;
-		
-			
-		
+
+
+
 		thePanel.add(mar.makeMarble());
-		
-	
-		
+
+
+
 	}
 }

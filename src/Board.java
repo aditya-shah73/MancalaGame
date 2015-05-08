@@ -1,6 +1,6 @@
 import java.awt.Image;
-
 import javax.swing.JPanel;
+
 /**
  * 
  * @author user
