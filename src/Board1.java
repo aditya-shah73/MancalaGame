@@ -22,7 +22,6 @@ public class Board1 extends JPanel implements Board {
 	JPanel pit11;
 	JPanel pit12;
 	GameEngine g;
-
 	Image pit1Image;
 	Image pit2Image;
 	Image pit3Image;
@@ -51,21 +50,37 @@ public class Board1 extends JPanel implements Board {
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
+
 		final Image storeImageLeft = requestImage("Images/WoodStoreLeft.png");
 		JPanel storePanelLeft = new JPanel() {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(storeImageLeft.getScaledInstance(125, 224, 0), 0,
-						0, null); // -------------------> LEFT STORE IMAGE SIZE
-									// AND LOCATION
+				0, null); // -------------------> LEFT STORE IMAGE SIZE
+				// AND LOCATION
 			}
 		};
-
+		
 		storePanelLeft.setPreferredSize(new Dimension(125, 224));
 		boardPanel.add(storePanelLeft, BorderLayout.WEST);
-
-		storePanelLeft.setLayout(new GridLayout(0, 4));
-
+		storePanelLeft.setLayout(new GridLayout(0,4));
+		
+		JPanel storePanelNorthLeft = new JPanel();
+		storePanelNorthLeft.setOpaque(false);
+		JPanel storePanelSouthLeft = new JPanel();
+		storePanelSouthLeft.setOpaque(false);
+		JPanel storePanelEastLeft = new JPanel();
+		storePanelEastLeft.setOpaque(false);
+		JPanel storePanelWestLeft = new JPanel();
+		storePanelWestLeft.setOpaque(false);
+		JPanel storePanelCenterLeft = new JPanel();
+		storePanelCenterLeft.setOpaque(false);
+		storePanelCenterLeft.setLayout(new GridLayout(0, 5));
+		storePanelLeft.add(storePanelNorthLeft, BorderLayout.NORTH);
+		storePanelLeft.add(storePanelSouthLeft, BorderLayout.SOUTH);
+		storePanelLeft.add(storePanelEastLeft, BorderLayout.EAST);
+		storePanelLeft.add(storePanelWestLeft, BorderLayout.WEST);
+		storePanelLeft.add(storePanelCenterLeft, BorderLayout.CENTER);
 		// --------------------------------------------------------------------------------------------------------------------------------
 
 		final Image storeImageRight = requestImage("Images/WoodStoreRight.png");
@@ -74,15 +89,31 @@ public class Board1 extends JPanel implements Board {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(storeImageRight.getScaledInstance(125, 224, 0), 0,
-						0, null); // -------------------> RIGHT STORE IMAGE SIZE
-									// AND LOCATION
+				0, null); // -------------------> RIGHT STORE IMAGE SIZE
+				// AND LOCATION
 			}
 		};
-
+		
 		storePanelRight.setPreferredSize(new Dimension(125, 224));
 		boardPanel.add(storePanelRight, BorderLayout.EAST);
-
-		storePanelRight.setLayout(new GridLayout(0, 4));
+		storePanelRight.setLayout(new GridLayout(0,4));
+		
+		JPanel storePanelNorthRight = new JPanel();
+		storePanelNorthRight.setOpaque(false);
+		JPanel storePanelSouthRight = new JPanel();
+		storePanelSouthRight.setOpaque(false);
+		JPanel storePanelEastRight = new JPanel();
+		storePanelEastRight.setOpaque(false);
+		JPanel storePanelWestRight = new JPanel();
+		storePanelWestRight.setOpaque(false);
+		JPanel storePanelCenterRight = new JPanel();
+		storePanelCenterRight.setOpaque(false);
+		storePanelCenterRight.setLayout(new GridLayout(0, 5));
+		storePanelRight.add(storePanelNorthRight, BorderLayout.NORTH);
+		storePanelRight.add(storePanelSouthRight, BorderLayout.SOUTH);
+		storePanelRight.add(storePanelEastRight, BorderLayout.EAST);
+		storePanelRight.add(storePanelWestRight, BorderLayout.WEST);
+		storePanelRight.add(storePanelCenterRight, BorderLayout.CENTER);
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -94,184 +125,374 @@ public class Board1 extends JPanel implements Board {
 		// --------------------------------------------------------------------------------------------------------------------------------
 
 		pit1Image = requestImage("Images/WoodPit1-6.png");
-		this.pit1 = new JPanel() {
+		JPanel center1 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit1Image.getScaledInstance(
-						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
+				pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
 
-		pit1.setLayout(new GridLayout(0, 4));
+		center1.setLayout(new BorderLayout());
+		JPanel north1 = new JPanel();
+		north1.setOpaque(false);
+		JPanel south1 = new JPanel();
+		south1.setOpaque(false);
+		JPanel east1 = new JPanel();
+		east1.setOpaque(false);
+		JPanel west1 = new JPanel();
+		west1.setOpaque(false);
+		 this.pit1 = new JPanel();
+		this.pit1.setOpaque(false);
+		pit1.setLayout(new GridLayout(0, 5));
+		center1.add(north1, BorderLayout.NORTH);
+		center1.add(south1, BorderLayout.SOUTH);
+		center1.add(east1, BorderLayout.EAST);
+		center1.add(west1, BorderLayout.WEST);
+		center1.add(pit1, BorderLayout.CENTER);
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
 		pit2Image = requestImage("Images/WoodPit1-6.png");
-		pit2 = new JPanel() {
+		JPanel center2 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit2Image.getScaledInstance(
-						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
+				pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
 
-		pit2.setLayout(new GridLayout(0, 4));
-
+		center2.setLayout(new BorderLayout());
+		JPanel north2 = new JPanel();
+		north2.setOpaque(false);
+		JPanel south2 = new JPanel();
+		south2.setOpaque(false);
+		JPanel east2 = new JPanel();
+		east2.setOpaque(false);
+		JPanel west2 = new JPanel();
+		west2.setOpaque(false);
+		 this.pit2 = new JPanel();
+		this.pit2.setOpaque(false);
+		pit2.setLayout(new GridLayout(0, 5));
+		center2.add(north2, BorderLayout.NORTH);
+		center2.add(south2, BorderLayout.SOUTH);
+		center2.add(east2, BorderLayout.EAST);
+		center2.add(west2, BorderLayout.WEST);
+		center2.add(pit2, BorderLayout.CENTER);
 		// --------------------------------------------------------------------------------------------------------------------------------
 
 		pit3Image = requestImage("Images/WoodPit1-6.png");
-		pit3 = new JPanel() {
+		JPanel center3 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit3Image.getScaledInstance(
-						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
+				pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
-		pit3.setLayout(new GridLayout(0, 4));
+
+		center3.setLayout(new BorderLayout());
+		JPanel north3 = new JPanel();
+		north3.setOpaque(false);
+		JPanel south3 = new JPanel();
+		south3.setOpaque(false);
+		JPanel east3 = new JPanel();
+		east3.setOpaque(false);
+		JPanel west3 = new JPanel();
+		west3.setOpaque(false);
+		 this.pit3 = new JPanel();
+		this.pit3.setOpaque(false);
+		pit3.setLayout(new GridLayout(0, 5));
+		center3.add(north3, BorderLayout.NORTH);
+		center3.add(south3, BorderLayout.SOUTH);
+		center3.add(east3, BorderLayout.EAST);
+		center3.add(west3, BorderLayout.WEST);
+		center3.add(pit3, BorderLayout.CENTER);
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
 		pit4Image = requestImage("Images/WoodPit1-6.png");
-		pit4 = new JPanel() {
+		JPanel center4 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit4Image.getScaledInstance(
-						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
+				pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
 
-		pit4.setLayout(new GridLayout(0, 4));
-
+		center4.setLayout(new BorderLayout());
+		JPanel north4 = new JPanel();
+		north4.setOpaque(false);
+		JPanel south4 = new JPanel();
+		south4.setOpaque(false);
+		JPanel east4 = new JPanel();
+		east4.setOpaque(false);
+		JPanel west4 = new JPanel();
+		west4.setOpaque(false);
+		 this.pit4 = new JPanel();
+		this.pit4.setOpaque(false);
+		pit4.setLayout(new GridLayout(0, 5));
+		center4.add(north4, BorderLayout.NORTH);
+		center4.add(south4, BorderLayout.SOUTH);
+		center4.add(east4, BorderLayout.EAST);
+		center4.add(west4, BorderLayout.WEST);
+		center4.add(pit4, BorderLayout.CENTER);
 		// --------------------------------------------------------------------------------------------------------------------------------
 
 		pit5Image = requestImage("Images/WoodPit1-6.png");
-		pit5 = new JPanel() {
+		JPanel center5 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit5Image.getScaledInstance(
-						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
+				pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
 
-		pit5.setLayout(new GridLayout(0, 4));
+		center5.setLayout(new BorderLayout());
+		JPanel north5 = new JPanel();
+		north5.setOpaque(false);
+		JPanel south5 = new JPanel();
+		south5.setOpaque(false);
+		JPanel east5 = new JPanel();
+		east5.setOpaque(false);
+		JPanel west5 = new JPanel();
+		west5.setOpaque(false);
+		 this.pit5 = new JPanel();
+		this.pit5.setOpaque(false);
+		pit5.setLayout(new GridLayout(0, 5));
+		center5.add(north5, BorderLayout.NORTH);
+		center5.add(south5, BorderLayout.SOUTH);
+		center5.add(east5, BorderLayout.EAST);
+		center5.add(west5, BorderLayout.WEST);
+		center5.add(pit5, BorderLayout.CENTER);
 
 		// --------------------------------------------------------------------------------------------------------------------------------
-
 		pit6Image = requestImage("Images/WoodPit1-6.png");
-		pit6 = new JPanel() {
+		JPanel center6 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit6Image.getScaledInstance(
-						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
+				pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
-		pit6.setLayout(new GridLayout(0, 4));
 
+		center6.setLayout(new BorderLayout());
+		JPanel north6 = new JPanel();
+		north6.setOpaque(false);
+		JPanel south6 = new JPanel();
+		south6.setOpaque(false);
+		JPanel east6 = new JPanel();
+		east6.setOpaque(false);
+		JPanel west6 = new JPanel();
+		west6.setOpaque(false);
+		 this.pit6 = new JPanel();
+		this.pit6.setOpaque(false);
+		pit6.setLayout(new GridLayout(0, 5));
+		center6.add(north6, BorderLayout.NORTH);
+		center6.add(south6, BorderLayout.SOUTH);
+		center6.add(east6, BorderLayout.EAST);
+		center6.add(west6, BorderLayout.WEST);
+		center6.add(pit6, BorderLayout.CENTER);
 		// --------------------------------------------------------------------------------------------------------------------------------
 
 		pit7Image = requestImage("Images/WoodPit7-12.png");
-		pit7 = new JPanel() {
+		JPanel center7 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit7Image.getScaledInstance(
-						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
+				pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
 
-		pit7.setLayout(new GridLayout(0, 4));
+		center7.setLayout(new BorderLayout());
+		JPanel north7 = new JPanel();
+		north7.setOpaque(false);
+		JPanel south7 = new JPanel();
+		south7.setOpaque(false);
+		JPanel east7 = new JPanel();
+		east7.setOpaque(false);
+		JPanel west7 = new JPanel();
+		west7.setOpaque(false);
+		 this.pit7 = new JPanel();
+		this.pit7.setOpaque(false);
+		pit7.setLayout(new GridLayout(0, 5));
+		center7.add(north7, BorderLayout.NORTH);
+		center7.add(south7, BorderLayout.SOUTH);
+		center7.add(east7, BorderLayout.EAST);
+		center7.add(west7, BorderLayout.WEST);
+		center7.add(pit7, BorderLayout.CENTER);
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
 		pit8Image = requestImage("Images/WoodPit7-12.png");
-		pit8 = new JPanel() {
+		JPanel center8 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit8Image.getScaledInstance(
-						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
+				pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
 
-		pit8.setLayout(new GridLayout(0, 4));
+		center8.setLayout(new BorderLayout());
+		JPanel north8 = new JPanel();
+		north8.setOpaque(false);
+		JPanel south8 = new JPanel();
+		south8.setOpaque(false);
+		JPanel east8 = new JPanel();
+		east8.setOpaque(false);
+		JPanel west8 = new JPanel();
+		west8.setOpaque(false);
+		 this.pit8 = new JPanel();
+		this.pit8.setOpaque(false);
+		pit8.setLayout(new GridLayout(0, 5));
+		center8.add(north8, BorderLayout.NORTH);
+		center8.add(south8, BorderLayout.SOUTH);
+		center8.add(east8, BorderLayout.EAST);
+		center8.add(west8, BorderLayout.WEST);
+		center8.add(pit8, BorderLayout.CENTER);
+
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
 		pit9Image = requestImage("Images/WoodPit7-12.png");
-		pit9 = new JPanel() {
+		JPanel center9 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit9Image.getScaledInstance(
-						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
+				pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
 
-		pit9.setLayout(new GridLayout(0, 4));
+		center9.setLayout(new BorderLayout());
+		JPanel north9 = new JPanel();
+		north9.setOpaque(false);
+		JPanel south9 = new JPanel();
+		south9.setOpaque(false);
+		JPanel east9 = new JPanel();
+		east9.setOpaque(false);
+		JPanel west9 = new JPanel();
+		west9.setOpaque(false);
+		 this.pit9 = new JPanel();
+		this.pit9.setOpaque(false);
+		pit9.setLayout(new GridLayout(0, 5));
+		center9.add(north9, BorderLayout.NORTH);
+		center9.add(south9, BorderLayout.SOUTH);
+		center9.add(east9, BorderLayout.EAST);
+		center9.add(west9, BorderLayout.WEST);
+		center9.add(pit9, BorderLayout.CENTER);
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
 		pit10Image = requestImage("Images/WoodPit7-12.png");
-		pit10 = new JPanel() {
+		JPanel center10 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit10Image.getScaledInstance(
-						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
+				pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
 
-		pit10.setLayout(new GridLayout(0, 4));
-
+		center10.setLayout(new BorderLayout());
+		JPanel north10 = new JPanel();
+		north10.setOpaque(false);
+		JPanel south10 = new JPanel();
+		south10.setOpaque(false);
+		JPanel east10 = new JPanel();
+		east10.setOpaque(false);
+		JPanel west10 = new JPanel();
+		west10.setOpaque(false);
+		 this.pit10 = new JPanel();
+		this.pit10.setOpaque(false);
+		pit10.setLayout(new GridLayout(0, 5));
+		center10.add(north10, BorderLayout.NORTH);
+		center10.add(south10, BorderLayout.SOUTH);
+		center10.add(east10, BorderLayout.EAST);
+		center10.add(west10, BorderLayout.WEST);
+		center10.add(pit10, BorderLayout.CENTER);
 		// --------------------------------------------------------------------------------------------------------------------------------
 
 		pit11Image = requestImage("Images/WoodPit7-12.png");
-		pit11 = new JPanel() {
+		JPanel center11 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit11Image.getScaledInstance(
-						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
+				pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
 
-		pit11.setLayout(new GridLayout(0, 4));
+		center11.setLayout(new BorderLayout());
+		JPanel north11 = new JPanel();
+		north11.setOpaque(false);
+		JPanel south11 = new JPanel();
+		south11.setOpaque(false);
+		JPanel east11 = new JPanel();
+		east11.setOpaque(false);
+		JPanel west11 = new JPanel();
+		west11.setOpaque(false);
+		 this.pit11 = new JPanel();
+		this.pit11.setOpaque(false);
+		pit11.setLayout(new GridLayout(0, 5));
+		center11.add(north11, BorderLayout.NORTH);
+		center11.add(south11, BorderLayout.SOUTH);
+		center11.add(east11, BorderLayout.EAST);
+		center11.add(west11, BorderLayout.WEST);
+		center11.add(pit11, BorderLayout.CENTER);
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
 		pit12Image = requestImage("Images/WoodPit7-12.png");
-		pit12 = new JPanel() {
+		JPanel center12= new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit12Image.getScaledInstance(
-						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
+				pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
 
-		pit12.setLayout(new GridLayout(0, 4));
+		center12.setLayout(new BorderLayout());
+		JPanel north12 = new JPanel();
+		north12.setOpaque(false);
+		JPanel south12 = new JPanel();
+		south12.setOpaque(false);
+		JPanel east12 = new JPanel();
+		east12.setOpaque(false);
+		JPanel west12 = new JPanel();
+		west12.setOpaque(false);
+		 this.pit12 = new JPanel();
+		this.pit12.setOpaque(false);
+		pit12.setLayout(new GridLayout(0, 5));
+		center12.add(north12, BorderLayout.NORTH);
+		center12.add(south12, BorderLayout.SOUTH);
+		center12.add(east12, BorderLayout.EAST);
+		center12.add(west12, BorderLayout.WEST);
+		center12.add(pit12, BorderLayout.CENTER);
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
 		pitPanel.setLayout(new GridLayout(2, 6));
-		pitPanel.add(pit1);
-		pitPanel.add(pit2);
-		pitPanel.add(pit3);
-		pitPanel.add(pit4);
-		pitPanel.add(pit5);
-		pitPanel.add(pit6);
-		pitPanel.add(pit7);
-		pitPanel.add(pit8);
-		pitPanel.add(pit9);
-		pitPanel.add(pit10);
-		pitPanel.add(pit11);
-		pitPanel.add(pit12);
+		pitPanel.add(center1);
+		pitPanel.add(center2);
+		pitPanel.add(center3);
+		pitPanel.add(center4);
+		pitPanel.add(center5);
+		pitPanel.add(center6);
+		pitPanel.add(center7);
+		pitPanel.add(center8);
+		pitPanel.add(center9);
+		pitPanel.add(center10);
+		pitPanel.add(center11);
+		pitPanel.add(center12);
 		// --------------------------------------------------------------------------------------------------------------------------------
 		pitList.add(pit6);
 		pitList.add(pit5);

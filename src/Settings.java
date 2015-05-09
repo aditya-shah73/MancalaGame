@@ -1,19 +1,9 @@
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-
-public class Settings {
+public class Settings 
+{
 	private JFrame frame;
 	private JPanel box;
 	private JPanel option1;
@@ -24,13 +14,14 @@ public class Settings {
 	private JTextArea a1;
 	private JTextArea a2;
 	private JButton button;
-	private final int FRAME_WIDTH = 200;
-	private final int FRAME_HEIGHT = 200;
-	int numberOfMarbles;
-	String input;
-	GameEngine g;
+	private final int FRAME_WIDTH = 400;
+	private final int FRAME_HEIGHT = 150;
+	private int numberOfMarbles;
+	private String input;
+	private GameEngine g;
 
-	public Settings(GameEngine ge) {
+	public Settings(GameEngine ge) 
+	{
 		g = ge;
 		frame = new JFrame();
 		box = new JPanel();
@@ -39,25 +30,28 @@ public class Settings {
 		option2 = new JPanel(new FlowLayout());
 		option3 = new JPanel(new FlowLayout());
 		b1 = new JComboBox(numberOfMarbles());
-		b2 = new JComboBox(theme());
+		b2 = new JComboBox(themeChoice());
 		a1 = new JTextArea("Choose the number of marbles:");
 		a2 = new JTextArea("Choose the theme:");
 		button = new JButton("Confirm");
 		frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
-
+		frame.setBackground(Color.LIGHT_GRAY);
 		numberOfMarbles = 0;
 		input = "";
 		drawFrame();
 	}
 
-	public void drawFrame() {
+	public void drawFrame() 
+	{
 		b1.setPreferredSize(new Dimension(75, 25));
-		b2.setPreferredSize(new Dimension(100, 25));
-		a1.setBackground(Color.LIGHT_GRAY);
-		a2.setBackground(Color.yellow);
-		a1.setFont(new Font("Helvetica", Font.BOLD, 18));
-		a2.setFont(new Font("Helvetica", Font.BOLD, 18));
-		button.setFont(new Font("Helvetica", Font.BOLD, 18));
+		b2.setPreferredSize(new Dimension(110, 25));
+		a1.setFont(new Font("Lucida Blackletter", Font.BOLD, 16));
+		a2.setFont(new Font("Lucida Blackletter", Font.BOLD, 16));
+		b1.setFont(new Font("Lucida Blackletter", Font.BOLD, 16));
+		b2.setFont(new Font("Lucida Blackletter", Font.BOLD, 16));
+		button.setFont(new Font("Lucida Blackletter", Font.BOLD, 16));
+		a1.setOpaque(false);
+		a2.setOpaque(false);
 		option1.add(a1);
 		option1.add(b1);
 		option2.add(a2);
@@ -67,49 +61,50 @@ public class Settings {
 		box.add(option2);
 		box.add(option3);
 		frame.add(box);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);// remove later
-		frame.pack();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 
-		b1.addActionListener(new ActionListener() {
+		b1.addActionListener(new ActionListener() 
+		{
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+			public void actionPerformed(ActionEvent e) 
+			{
 				numberOfMarbles = (int) b1.getSelectedItem();
 				System.out.println(numberOfMarbles);
 				g.setMarbles(numberOfMarbles);
 			}
-
 		});
 
-		b2.addActionListener(new ActionListener() {
+		b2.addActionListener(new ActionListener() 
+		{
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+			public void actionPerformed(ActionEvent e) 
+			{
 				input = (String) b2.getSelectedItem();
 				System.out.println(input);
 				g.setBoard(input);
 			}
-
 		});
 		
-		button.addActionListener(new ActionListener() {
+		button.addActionListener(new ActionListener() 
+		{
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+			public void actionPerformed(ActionEvent e) 
+			{
 				frame.dispose();
 			}
-
 		});
 	}
 
-	public Integer[] numberOfMarbles() {
-		Integer[] marble = { 3, 4 };
+	public Integer[] numberOfMarbles() 
+	{
+		Integer[] marble = {3 , 4};
 		return marble;
 	}
 
-	public String[] theme() {
-		String[] t = { "Ceramic", "Wood" };
+	public String[] themeChoice() 
+	{
+		String[] t = {"Ceramic" ,"Wood"};
 		return t;
 	}
 }
