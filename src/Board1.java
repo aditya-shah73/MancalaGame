@@ -52,18 +52,18 @@ public class Board1 extends JPanel implements Board {
 
 
 		final Image storeImageLeft = requestImage("Images/WoodStoreLeft.png");
-		JPanel storePanelLeft = new JPanel() {
+		JPanel storePanelLeftCenter = new JPanel() {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(storeImageLeft.getScaledInstance(125, 224, 0), 0,
 				0, null); // -------------------> LEFT STORE IMAGE SIZE
 				// AND LOCATION
-			}
-		};
+			}																			//storePanelLeftCenter has cusion and is the bigger Panel
+		};																				//storePanelLeft is the smaller panel, situated in center of storePanelLeftCenter.
 		
-		storePanelLeft.setPreferredSize(new Dimension(125, 224));
-		boardPanel.add(storePanelLeft, BorderLayout.WEST);
-		storePanelLeft.setLayout(new GridLayout(0,4));
+		storePanelLeftCenter.setPreferredSize(new Dimension(125, 224));
+		boardPanel.add(storePanelLeftCenter, BorderLayout.WEST);
+		storePanelLeftCenter.setLayout(new BorderLayout());
 		
 		JPanel storePanelNorthLeft = new JPanel();
 		storePanelNorthLeft.setOpaque(false);
@@ -73,30 +73,29 @@ public class Board1 extends JPanel implements Board {
 		storePanelEastLeft.setOpaque(false);
 		JPanel storePanelWestLeft = new JPanel();
 		storePanelWestLeft.setOpaque(false);
-		JPanel storePanelCenterLeft = new JPanel();
-		storePanelCenterLeft.setOpaque(false);
-		storePanelCenterLeft.setLayout(new GridLayout(0, 5));
-		storePanelLeft.add(storePanelNorthLeft, BorderLayout.NORTH);
-		storePanelLeft.add(storePanelSouthLeft, BorderLayout.SOUTH);
-		storePanelLeft.add(storePanelEastLeft, BorderLayout.EAST);
-		storePanelLeft.add(storePanelWestLeft, BorderLayout.WEST);
-		storePanelLeft.add(storePanelCenterLeft, BorderLayout.CENTER);
+		JPanel storePanelLeft = new JPanel();
+		storePanelLeft.setOpaque(false);
+		storePanelLeft.setLayout(new GridLayout(0, 5));
+		storePanelLeftCenter.add(storePanelNorthLeft, BorderLayout.NORTH);
+		storePanelLeftCenter.add(storePanelSouthLeft, BorderLayout.SOUTH);
+		storePanelLeftCenter.add(storePanelEastLeft, BorderLayout.EAST);
+		storePanelLeftCenter.add(storePanelWestLeft, BorderLayout.WEST);
+		storePanelLeftCenter.add(storePanelLeft, BorderLayout.CENTER);
 		// --------------------------------------------------------------------------------------------------------------------------------
 
 		final Image storeImageRight = requestImage("Images/WoodStoreRight.png");
-		JPanel storePanelRight = new JPanel() {
-			@Override
+		JPanel storePanelRightCenter = new JPanel() {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(storeImageRight.getScaledInstance(125, 224, 0), 0,
-				0, null); // -------------------> RIGHT STORE IMAGE SIZE
+				0, null); // -------------------> Right STORE IMAGE SIZE
 				// AND LOCATION
-			}
-		};
+			}																			//storePanelRightCenter has cusion and is the bigger Panel
+		};																				//storePanelRight is the smaller panel, situated in center of storePanelRightCenter.
 		
-		storePanelRight.setPreferredSize(new Dimension(125, 224));
-		boardPanel.add(storePanelRight, BorderLayout.EAST);
-		storePanelRight.setLayout(new GridLayout(0,4));
+		storePanelRightCenter.setPreferredSize(new Dimension(125, 224));
+		boardPanel.add(storePanelRightCenter, BorderLayout.EAST);
+		storePanelRightCenter.setLayout(new BorderLayout());
 		
 		JPanel storePanelNorthRight = new JPanel();
 		storePanelNorthRight.setOpaque(false);
@@ -106,14 +105,14 @@ public class Board1 extends JPanel implements Board {
 		storePanelEastRight.setOpaque(false);
 		JPanel storePanelWestRight = new JPanel();
 		storePanelWestRight.setOpaque(false);
-		JPanel storePanelCenterRight = new JPanel();
-		storePanelCenterRight.setOpaque(false);
-		storePanelCenterRight.setLayout(new GridLayout(0, 5));
-		storePanelRight.add(storePanelNorthRight, BorderLayout.NORTH);
-		storePanelRight.add(storePanelSouthRight, BorderLayout.SOUTH);
-		storePanelRight.add(storePanelEastRight, BorderLayout.EAST);
-		storePanelRight.add(storePanelWestRight, BorderLayout.WEST);
-		storePanelRight.add(storePanelCenterRight, BorderLayout.CENTER);
+		JPanel storePanelRight = new JPanel();
+		storePanelRight.setOpaque(false);
+		storePanelRight.setLayout(new GridLayout(0, 5));
+		storePanelRightCenter.add(storePanelNorthRight, BorderLayout.NORTH);
+		storePanelRightCenter.add(storePanelSouthRight, BorderLayout.SOUTH);
+		storePanelRightCenter.add(storePanelEastRight, BorderLayout.EAST);
+		storePanelRightCenter.add(storePanelWestRight, BorderLayout.WEST);
+		storePanelRightCenter.add(storePanelRight, BorderLayout.CENTER);
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 

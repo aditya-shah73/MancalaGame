@@ -1,21 +1,14 @@
 import java.awt.*;
-
 import java.awt.event.MouseEvent;
-
 import java.awt.event.MouseListener;
-
 import java.io.*;
-
 import java.util.ArrayList;
 
 import javax.imageio.*;
-
 import javax.swing.*;
 
 public class Board2 extends JPanel implements Board {
-
 	ArrayList<JPanel> pitList;
-
 	JPanel pit1;
 	JPanel pit2;
 	JPanel pit3;
@@ -41,6 +34,7 @@ public class Board2 extends JPanel implements Board {
 	Image pit10Image;
 	Image pit11Image;
 	Image pit12Image;
+
 	JPanel pitPanel;
 
 	public Board2(GameEngine ge) {
@@ -49,25 +43,27 @@ public class Board2 extends JPanel implements Board {
 	}
 
 	public Board2 prepare() {
+
 		JPanel boardPanel = new JPanel();
 		boardPanel.setPreferredSize(new Dimension(1000, 224));
 		boardPanel.setLayout(new BorderLayout());
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
+
 		final Image storeImageLeft = requestImage("Images/CeramicStoreLeft.png");
-		JPanel storePanelLeft = new JPanel() {
+		JPanel storePanelLeftCenter = new JPanel() {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(storeImageLeft.getScaledInstance(125, 224, 0), 0,
 				0, null); // -------------------> LEFT STORE IMAGE SIZE
 				// AND LOCATION
-			}
-		};
+			}																			//storePanelLeftCenter has cusion and is the bigger Panel
+		};																				//storePanelLeft is the smaller panel, situated in center of storePanelLeftCenter.
 		
-		storePanelLeft.setPreferredSize(new Dimension(125, 224));
-		boardPanel.add(storePanelLeft, BorderLayout.WEST);
-		storePanelLeft.setLayout(new BorderLayout());
+		storePanelLeftCenter.setPreferredSize(new Dimension(125, 224));
+		boardPanel.add(storePanelLeftCenter, BorderLayout.WEST);
+		storePanelLeftCenter.setLayout(new BorderLayout());
 		
 		JPanel storePanelNorthLeft = new JPanel();
 		storePanelNorthLeft.setOpaque(false);
@@ -77,31 +73,29 @@ public class Board2 extends JPanel implements Board {
 		storePanelEastLeft.setOpaque(false);
 		JPanel storePanelWestLeft = new JPanel();
 		storePanelWestLeft.setOpaque(false);
-		JPanel storePanelCenterLeft = new JPanel();
-		storePanelCenterLeft.setOpaque(false);
-		storePanelCenterLeft.setLayout(new GridLayout(0, 5));
-		storePanelLeft.add(storePanelNorthLeft, BorderLayout.NORTH);
-		storePanelLeft.add(storePanelSouthLeft, BorderLayout.SOUTH);
-		storePanelLeft.add(storePanelEastLeft, BorderLayout.EAST);
-		storePanelLeft.add(storePanelWestLeft, BorderLayout.WEST);
-		storePanelLeft.add(storePanelCenterLeft, BorderLayout.CENTER);
-
+		JPanel storePanelLeft = new JPanel();
+		storePanelLeft.setOpaque(false);
+		storePanelLeft.setLayout(new GridLayout(0, 5));
+		storePanelLeftCenter.add(storePanelNorthLeft, BorderLayout.NORTH);
+		storePanelLeftCenter.add(storePanelSouthLeft, BorderLayout.SOUTH);
+		storePanelLeftCenter.add(storePanelEastLeft, BorderLayout.EAST);
+		storePanelLeftCenter.add(storePanelWestLeft, BorderLayout.WEST);
+		storePanelLeftCenter.add(storePanelLeft, BorderLayout.CENTER);
 		// --------------------------------------------------------------------------------------------------------------------------------
 
 		final Image storeImageRight = requestImage("Images/CeramicStoreRight.png");
-		JPanel storePanelRight = new JPanel() {
-			@Override
+		JPanel storePanelRightCenter = new JPanel() {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(storeImageRight.getScaledInstance(125, 224, 0), 0,
-				0, null); // -------------------> RIGHT STORE IMAGE SIZE
+				0, null); // -------------------> Right STORE IMAGE SIZE
 				// AND LOCATION
-			}
-		};
+			}																			//storePanelRightCenter has cusion and is the bigger Panel
+		};																				//storePanelRight is the smaller panel, situated in center of storePanelRightCenter.
 		
-		storePanelRight.setPreferredSize(new Dimension(125, 224));
-		boardPanel.add(storePanelRight, BorderLayout.EAST);
-		storePanelRight.setLayout(new BorderLayout());
+		storePanelRightCenter.setPreferredSize(new Dimension(125, 224));
+		boardPanel.add(storePanelRightCenter, BorderLayout.EAST);
+		storePanelRightCenter.setLayout(new BorderLayout());
 		
 		JPanel storePanelNorthRight = new JPanel();
 		storePanelNorthRight.setOpaque(false);
@@ -111,14 +105,14 @@ public class Board2 extends JPanel implements Board {
 		storePanelEastRight.setOpaque(false);
 		JPanel storePanelWestRight = new JPanel();
 		storePanelWestRight.setOpaque(false);
-		JPanel storePanelCenterRight = new JPanel();
-		storePanelCenterRight.setOpaque(false);
-		storePanelCenterRight.setLayout(new GridLayout(0, 5));
-		storePanelRight.add(storePanelNorthRight, BorderLayout.NORTH);
-		storePanelRight.add(storePanelSouthRight, BorderLayout.SOUTH);
-		storePanelRight.add(storePanelEastRight, BorderLayout.EAST);
-		storePanelRight.add(storePanelWestRight, BorderLayout.WEST);
-		storePanelRight.add(storePanelCenterRight, BorderLayout.CENTER);
+		JPanel storePanelRight = new JPanel();
+		storePanelRight.setOpaque(false);
+		storePanelRight.setLayout(new GridLayout(0, 5));
+		storePanelRightCenter.add(storePanelNorthRight, BorderLayout.NORTH);
+		storePanelRightCenter.add(storePanelSouthRight, BorderLayout.SOUTH);
+		storePanelRightCenter.add(storePanelEastRight, BorderLayout.EAST);
+		storePanelRightCenter.add(storePanelWestRight, BorderLayout.WEST);
+		storePanelRightCenter.add(storePanelRight, BorderLayout.CENTER);
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -363,6 +357,7 @@ public class Board2 extends JPanel implements Board {
 		center8.add(west8, BorderLayout.WEST);
 		center8.add(pit8, BorderLayout.CENTER);
 
+
 		// --------------------------------------------------------------------------------------------------------------------------------
 
 		pit9Image = requestImage("Images/CeramicPit7-12.png");
@@ -497,28 +492,25 @@ public class Board2 extends JPanel implements Board {
 		pitPanel.add(center10);
 		pitPanel.add(center11);
 		pitPanel.add(center12);
-
 		// --------------------------------------------------------------------------------------------------------------------------------
-
 		pitList.add(pit6);
 		pitList.add(pit5);
 		pitList.add(pit4);
 		pitList.add(pit3);
 		pitList.add(pit2);
 		pitList.add(pit1);
-		pitList.add(null);
+		pitList.add(storePanelLeft);
 		pitList.add(pit7);
 		pitList.add(pit8);
 		pitList.add(pit9);
 		pitList.add(pit10);
 		pitList.add(pit11);
 		pitList.add(pit12);
-		pitList.add(null);
-
+		pitList.add(storePanelRight);
 		// --------------------------------------------------------------------------------------------------------------------------------
 
 		setSize(1000, 500);// ------------------------------------------------------------------------>
-		// FRAME SIZE
+							// FRAME SIZE
 		setLayout(new BorderLayout());
 		// /setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		add(boardPanel, BorderLayout.CENTER);
@@ -532,6 +524,7 @@ public class Board2 extends JPanel implements Board {
 
 	public Image requestImage(String imageName) {
 		Image image = null;
+
 		try {
 			image = ImageIO.read(new File(imageName));
 		} catch (IOException e) {
@@ -552,19 +545,26 @@ public class Board2 extends JPanel implements Board {
 	public void addListeners() {
 		// TODO Auto-generated method stub
 		for (JPanel j : pitList) {
+
 			if (j != null)
 				j.addMouseListener(new MouseListener() {
+
 					@Override
 					public void mouseClicked(MouseEvent arg0) {
-						System.out.println((pitList.indexOf(arg0.getComponent())));
-						System.out.println("You have clicked a pit");
-						int counter = pitList.indexOf(arg0.getComponent());
+						int pitNumber = pitList.indexOf(arg0.getComponent());
 						g.current = g.first;
+						int counter = pitList.indexOf(arg0.getComponent());
 						for (int i = 0; i < counter; i++) {
 							g.nextPit();
 						}
-						g.update(g.current);
+
+						if (g.current.isPlayer1() && g.player1Turn)
+							g.update(g.current);
+						
+						if (!g.current.isPlayer1() && !g.player1Turn)
+							g.update(g.current);
 					}
+
 					@Override
 					public void mouseEntered(MouseEvent arg0) {
 					}
@@ -585,10 +585,8 @@ public class Board2 extends JPanel implements Board {
 		}
 	}
 
-	public void addNumberOfMarble(JPanel panel, int i)
-	{
-		for (int x = 0; x < i; x++)
-		{
+	public void addNumberOfMarble(JPanel panel, int i) {
+		for (int x = 0; x < i; x++) {
 			Marble marble = new Marble();
 			panel.add(marble.makeMarble());
 		}
