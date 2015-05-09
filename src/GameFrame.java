@@ -130,11 +130,7 @@ public class GameFrame extends JFrame implements ChangeListener
 		for(int i = 0; i < e.BOARD_SIZE; i++){
 			count = e.current.count;
 			e.nextPit();
-			for(int j = 0; j < count; j++){
-				if(panel1.pitList.get(i) != null){
-					panel1.addMarbleToBoard(panel1.pitList.get(i));
-				}
-			}
+			panel1.addNumberOfMarbles(panel1.pitList.get(i), count);
 		}
 		
 	}
