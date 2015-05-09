@@ -25,7 +25,14 @@ public class GameFrame extends JFrame implements ChangeListener
 		e = ge;
 		panel1 = new Board1(e);
 		panel1.prepare();
-		panel1.addMarbleToBoard(panel1.pit1);
+		panel1.addListeners();
+		//panel1.addMarbleToBoard(panel1.pit6);
+//		for (int i = 0; i < e.current.count; i++)
+//			panel1.addMarbleToBoard(panel1.pitList.get(0));
+//		while(e.hasNextPit()){
+//			
+//		}
+		
 		panel2 = new Board2();
 		this.setLayout(new BorderLayout());
 		this.setTitle("Mancala Game");

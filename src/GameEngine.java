@@ -20,6 +20,7 @@ public class GameEngine
 	{
 		initiatePits();
 		listeners = new ArrayList<ChangeListener>();	
+		current = first;
 	}
 
 	//first is a pit, last is a store
@@ -87,6 +88,13 @@ public class GameEngine
 	public void attach(ChangeListener l)
 	{
 		listeners.add(l);
+	}
+	
+	public boolean hasNextPit(){
+		if(current.next != null)
+			return true;
+		else
+			return false;
 	}
 
 	public void update()

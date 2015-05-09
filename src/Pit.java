@@ -14,7 +14,7 @@ public class Pit
 		isPlayer1 = false;
 		isStore = false;
 		storage = new ArrayList<Marble>();
-		count = 0;
+		count = 4;
 	}
 	
 	public void addMarble(Marble m)
