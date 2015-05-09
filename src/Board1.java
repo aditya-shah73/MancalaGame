@@ -38,8 +38,7 @@ public class Board1 extends JPanel implements Board {
 
 		final Image storeImageLeft = requestImage("Images/WoodStoreLeft.png");
 		JPanel storePanelLeft = new JPanel() {
-			@Override
-			protected void paintComponent(Graphics g) {
+			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(storeImageLeft.getScaledInstance(125, 224, 0), 0,
 						0, null); // -------------------> LEFT STORE IMAGE SIZE
@@ -65,7 +64,7 @@ public class Board1 extends JPanel implements Board {
 		final Image storeImageRight = requestImage("Images/WoodStoreRight.png");
 		JPanel storePanelRight = new JPanel() {
 			@Override
-			protected void paintComponent(Graphics g) {
+			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(storeImageRight.getScaledInstance(125, 224, 0), 0,
 						0, null); // -------------------> RIGHT STORE IMAGE SIZE
@@ -98,7 +97,7 @@ public class Board1 extends JPanel implements Board {
 		final Image pit1Image = requestImage("Images/WoodPit1-6.png");
 		this.pit1 = new JPanel() {
 			@Override
-			protected void paintComponent(Graphics g) {
+			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit1Image.getScaledInstance(
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
@@ -112,7 +111,7 @@ public class Board1 extends JPanel implements Board {
 		final Image pit2Image = requestImage("Images/WoodPit1-6.png");
 		pit2 = new JPanel() {
 			@Override
-			protected void paintComponent(Graphics g) {
+			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit2Image.getScaledInstance(
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
@@ -126,7 +125,7 @@ public class Board1 extends JPanel implements Board {
 		final Image pit3Image = requestImage("Images/WoodPit1-6.png");
 		pit3 = new JPanel() {
 			@Override
-			protected void paintComponent(Graphics g) {
+			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit3Image.getScaledInstance(
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
@@ -139,7 +138,7 @@ public class Board1 extends JPanel implements Board {
 		final Image pit4Image = requestImage("Images/WoodPit1-6.png");
 		pit4 = new JPanel() {
 			@Override
-			protected void paintComponent(Graphics g) {
+			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit4Image.getScaledInstance(
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
@@ -153,7 +152,7 @@ public class Board1 extends JPanel implements Board {
 		final Image pit5Image = requestImage("Images/WoodPit1-6.png");
 		pit5 = new JPanel() {
 			@Override
-			protected void paintComponent(Graphics g) {
+			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit5Image.getScaledInstance(
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
@@ -167,7 +166,7 @@ public class Board1 extends JPanel implements Board {
 		final Image pit6Image = requestImage("Images/WoodPit1-6.png");
 		pit6 = new JPanel() {
 			@Override
-			protected void paintComponent(Graphics g) {
+			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit6Image.getScaledInstance(
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
@@ -180,7 +179,7 @@ public class Board1 extends JPanel implements Board {
 		final Image pit7Image = requestImage("Images/WoodPit7-12.png");
 		pit7 = new JPanel() {
 			@Override
-			protected void paintComponent(Graphics g) {
+			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit7Image.getScaledInstance(
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
@@ -194,7 +193,7 @@ public class Board1 extends JPanel implements Board {
 		final Image pit8Image = requestImage("Images/WoodPit7-12.png");
 		pit8 = new JPanel() {
 			@Override
-			protected void paintComponent(Graphics g) {
+			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit8Image.getScaledInstance(
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
@@ -208,7 +207,7 @@ public class Board1 extends JPanel implements Board {
 		final Image pit9Image = requestImage("Images/WoodPit7-12.png");
 		pit9 = new JPanel() {
 			@Override
-			protected void paintComponent(Graphics g) {
+			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit9Image.getScaledInstance(
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
@@ -222,7 +221,7 @@ public class Board1 extends JPanel implements Board {
 		final Image pit10Image = requestImage("Images/WoodPit7-12.png");
 		pit10 = new JPanel() {
 			@Override
-			protected void paintComponent(Graphics g) {
+			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit10Image.getScaledInstance(
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
@@ -236,7 +235,7 @@ public class Board1 extends JPanel implements Board {
 		final Image pit11Image = requestImage("Images/WoodPit7-12.png");
 		pit11 = new JPanel() {
 			@Override
-			protected void paintComponent(Graphics g) {
+			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit11Image.getScaledInstance(
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
@@ -250,7 +249,7 @@ public class Board1 extends JPanel implements Board {
 		final Image pit12Image = requestImage("Images/WoodPit7-12.png");
 		pit12 = new JPanel() {
 			@Override
-			protected void paintComponent(Graphics g) {
+			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(pit12Image.getScaledInstance(
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
