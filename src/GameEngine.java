@@ -9,6 +9,10 @@ public class GameEngine {
 	Pit last;
 	int position = 0;
 	Pit current;
+	
+	//true - Player1
+	//false - Player2
+	boolean player1Turn;
 
 	// 0-5 Player 1
 	// 7-12 Player 2
@@ -20,6 +24,7 @@ public class GameEngine {
 		initiatePits();
 		listeners = new ArrayList<ChangeListener>();
 		current = first;
+		player1Turn = true;
 	}
 
 	// first is a pit, last is a store
@@ -28,20 +33,24 @@ public class GameEngine {
 		first.isPlayer1();
 		first.position = 0;
 		first.setPlayer1();
+		first.count = 3;
 		first.next = new Pit(); //Pit2
 		current = first.next;
 		current.setPlayer1();
 		current.position = 1;
+		current.count = 3;
 		current.next = new Pit(); // Pit 3
 		current = current.next;
 		current.position = 2;
 		current.setPlayer1();
+		current.count = 3;
 
 		for (int i = 0; i < BOARD_SIZE - 3; i++) {
 			Pit p = new Pit();
 			current.next = p;
 			current = current.next;
 			current.position = i + 3;
+			current.count = 3;
 			if (i <= 3) {
 				current.setPlayer1();
 
@@ -49,10 +58,12 @@ public class GameEngine {
 				last = current;
 				last.setAStore();
 				last.next = first;
+				last.count = 0;
 				break;
 			}
 			if (i == 3) {
-				p.setAStore();
+				current.setAStore();
+				current.count = 0;
 			}
 			//current = current.next;
 		}
@@ -70,15 +81,21 @@ public class GameEngine {
 		current = p;
 		int count = p.count;
 		current.count = 0;
+		
 		for (int i = 0; i < count; i++) {
 			nextPit();
-			current.count++;
 			if (current.isAStore()) {
-				// implement later
+				if(player1Turn && current == last){
+					nextPit();
+				}else if(!player1Turn && current != last){
+					nextPit();
+				}
 			}
+			
 			if (current.next.count == 0) {
 				// Implement later
 			}
+			current.count++;
 		}
 		printList();
 	}

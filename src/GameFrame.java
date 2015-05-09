@@ -1,6 +1,15 @@
-import java.awt.*;
-import javax.swing.*;
-import javax.swing.event.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class GameFrame extends JFrame implements ChangeListener
 {
@@ -53,9 +62,11 @@ public class GameFrame extends JFrame implements ChangeListener
 		undo2 = new JButton("UNDO");
 		
 		e.attach(this);
-		this.revalidate();
+		//this.revalidate();
 		drawFrame();
-		this.revalidate();
+		//this.revalidate();
+		this.validate();
+		panel1.validate();
 	}
 	
 	public void drawFrame()
@@ -83,11 +94,42 @@ public class GameFrame extends JFrame implements ChangeListener
 		player2Area.setOpaque(false);
 		player2Area.setFont(new Font("Lucida Blackletter", Font.BOLD, 30));
 		textPanel2.add(player2Area, BorderLayout.CENTER);
+		
 		buttonPanel2.add(undo2, BorderLayout.EAST);
 		buttonPanel2.add(confirm2, BorderLayout.WEST);
 		add(topPanel, BorderLayout.NORTH);
 		add(bottomPanel, BorderLayout.SOUTH);
 		add(panel1, BorderLayout.CENTER);
+		
+		confirm1.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				e.player1Turn = false;
+				player1Area.setBackground(Color.RED);
+				player2Area.setBackground(Color.YELLOW);
+				player1Area.validate();
+				player2Area.validate();
+				repaint();
+			}
+			
+		});
+		
+		confirm2.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				e.player1Turn = true;
+				player2Area.setBackground(Color.RED);
+				player1Area.setBackground(Color.YELLOW);
+				player1Area.validate();
+				player2Area.validate();
+				//repaint();
+			}
+			
+		});
 		
 		redistribute();
 	}
