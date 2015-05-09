@@ -9,6 +9,8 @@ public class GameEngine {
 	Pit last;
 	int position = 0;
 	Pit current;
+	Pit previous;
+	int previousValue;
 	
 	//true - Player1
 	//false - Player2
@@ -78,6 +80,7 @@ public class GameEngine {
 	// if last marble is moved into a store then you move again
 	// weird rule later
 	public void distribute(Pit p) {
+		previous = p;
 		current = p;
 		int count = p.count;
 		current.count = 0;
@@ -102,6 +105,30 @@ public class GameEngine {
 
 	public void attach(ChangeListener l) {
 		listeners.add(l);
+	}
+	
+	public void undo(){
+		current = previous;
+		
+		int count = previousValue;
+		current.count = count;
+		
+		for (int i = 0; i < count; i++) {
+			nextPit();
+			if (current.isAStore()) {
+				if(player1Turn && current == last){
+					nextPit();
+				}else if(!player1Turn && current != last){
+					nextPit();
+				}
+			}
+			
+			if (current.next.count == 0) {
+				// Implement later
+			}
+			current.count--;
+		}
+		printList();
 	}
 
 	public boolean hasNextPit() {
