@@ -33,7 +33,7 @@ public class GameFrame extends JFrame implements ChangeListener
 //			
 //		}
 		
-		panel2 = new Board2();
+		//panel2 = new Board2();
 		this.setLayout(new BorderLayout());
 		this.setTitle("Mancala Game");
 		
