@@ -67,10 +67,12 @@ public class GameEngine {
 	// if last marble is moved into a store then you move again
 	// weird rule later
 	public void distribute(Pit p) {
+		current = p;
 		int count = p.count;
 		current.count = 0;
-		for (int i = count; i > 0; i--) {
+		for (int i = 0; i < count; i++) {
 			nextPit();
+			current.count++;
 			if (current.isAStore()) {
 				// implement later
 			}
@@ -78,6 +80,7 @@ public class GameEngine {
 				// Implement later
 			}
 		}
+		printList();
 	}
 
 	public void attach(ChangeListener l) {
@@ -91,7 +94,8 @@ public class GameEngine {
 			return false;
 	}
 
-	public void update() {
+	public void update(Pit p) {
+		//distribute(first);
 		for (ChangeListener l : listeners) {
 			l.stateChanged(new ChangeEvent(this));
 		}
@@ -104,4 +108,5 @@ public class GameEngine {
 			nextPit();
 		}
 	}
+
 }

@@ -4,6 +4,7 @@ import javax.swing.event.*;
 
 public class GameFrame extends JFrame implements ChangeListener
 {
+	
 	private GameEngine e;
 	private Board1 panel1;
 	private Board2 panel2;
@@ -79,28 +80,41 @@ public class GameFrame extends JFrame implements ChangeListener
 		player2Area.setFont(new Font("Lucida Blackletter", Font.BOLD, 30));
 		textPanel2.add(player2Area, BorderLayout.CENTER);
 		buttonPanel2.add(undo2, BorderLayout.EAST);
-		buttonPanel2.add(confirm2, BorderLayout.WEST);		
+		buttonPanel2.add(confirm2, BorderLayout.WEST);
 		add(topPanel, BorderLayout.NORTH);
 		add(bottomPanel, BorderLayout.SOUTH);
 		add(panel1, BorderLayout.CENTER);
 		
-		distribute();
+		redistribute();
 	}
 	
-	public void distribute(){
+	public void redistribute(){
 		int count = 0;
+		e.current = e.first;
 		for(int i = 0; i < e.BOARD_SIZE; i++){
 			count = e.current.count;
+			e.nextPit();
 			for(int j = 0; j < count; j++){
-				if(panel1.pitList.get(i) != null)
-				panel1.addMarbleToBoard(panel1.pitList.get(i));
+				if(panel1.pitList.get(i) != null){
+					panel1.addMarbleToBoard(panel1.pitList.get(i));
+					System.out.println("reached");
+				}
 			}
 		}
+		
+	}
+	
+	public void removeMarbles(){
+		remove(panel1);
+		repaint();
 	}
 	
 	@Override
 	public void stateChanged(ChangeEvent e) 
 	{
-		
+		remove(panel1);
+		//removeMarbles();
+		//this.repaint();
+		//add(panel1);
 	}
 }

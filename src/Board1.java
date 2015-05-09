@@ -335,7 +335,7 @@ public class Board1 extends JPanel implements Board {
 					public void mouseClicked(MouseEvent arg0) {
 						System.out.println((pitList.indexOf(arg0.getComponent())));
 						System.out.println("You have clicked a pit");
-						g.update();
+						g.update(g.current);
 					}
 
 					@Override
