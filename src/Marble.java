@@ -2,7 +2,7 @@ import javax.swing.*;
 
 public class Marble
 {
-	private ImageIcon marbleIcon;
+	public ImageIcon marbleIcon;
 	
 	public JLabel makeMarble()
 	{

@@ -22,6 +22,21 @@ public class Board1 extends JPanel implements Board {
 	JPanel pit11;
 	JPanel pit12;
 	GameEngine g;
+	
+	Image pit1Image;
+	Image pit2Image;
+	Image pit3Image;
+	Image pit4Image;
+	Image pit5Image;
+	Image pit6Image;
+	Image pit7Image;
+	Image pit8Image;
+	Image pit9Image;
+	Image pit10Image;
+	Image pit11Image;
+	Image pit12Image;
+	
+	JPanel pitPanel;
 
 	public Board1(GameEngine ge) {
 		g = ge;
@@ -48,16 +63,9 @@ public class Board1 extends JPanel implements Board {
 
 		storePanelLeft.setPreferredSize(new Dimension(125, 224));
 		boardPanel.add(storePanelLeft, BorderLayout.WEST);
+		storePanelLeft.setLayout(new GridLayout(0,4));
 
 		// ----------------------------------------------------
-		storePanelLeft.setLayout(new BorderLayout());
-		JPanel counterPanelLeft = new JPanel();
-		counterPanelLeft.setOpaque(false);
-		storePanelLeft.add(counterPanelLeft, BorderLayout.NORTH);
-		counterPanelLeft.setLayout(new BorderLayout());
-		JTextArea counterAreaLeft = new JTextArea("0");
-		counterAreaLeft.setOpaque(false);
-		counterPanelLeft.add(counterAreaLeft, BorderLayout.EAST);
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -75,26 +83,18 @@ public class Board1 extends JPanel implements Board {
 		storePanelRight.setPreferredSize(new Dimension(125, 224));
 		boardPanel.add(storePanelRight, BorderLayout.EAST);
 
-		// ----------------------------------------------------
-		storePanelRight.setLayout(new BorderLayout());
-		JPanel counterPanelRight = new JPanel();
-		counterPanelRight.setOpaque(false);
-		storePanelRight.add(counterPanelRight, BorderLayout.NORTH);
-		counterPanelRight.setLayout(new BorderLayout());
-		JTextArea counterAreaRight = new JTextArea("0");
-		counterAreaRight.setOpaque(false);
-		counterPanelRight.add(counterAreaRight, BorderLayout.EAST);
+		storePanelLeft.setLayout(new GridLayout(0,4));
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
-		final JPanel pitPanel = new JPanel();
+		pitPanel = new JPanel();
 		pitPanel.setBackground(Color.WHITE);
 		pitPanel.setPreferredSize(new Dimension(650, 224));
 		boardPanel.add(pitPanel, BorderLayout.CENTER);
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit1Image = requestImage("Images/WoodPit1-6.png");
+		pit1Image = requestImage("Images/WoodPit1-6.png");
 		this.pit1 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
@@ -108,7 +108,7 @@ public class Board1 extends JPanel implements Board {
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit2Image = requestImage("Images/WoodPit1-6.png");
+		pit2Image = requestImage("Images/WoodPit1-6.png");
 		pit2 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
@@ -122,7 +122,7 @@ public class Board1 extends JPanel implements Board {
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit3Image = requestImage("Images/WoodPit1-6.png");
+		pit3Image = requestImage("Images/WoodPit1-6.png");
 		pit3 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
@@ -135,7 +135,7 @@ public class Board1 extends JPanel implements Board {
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit4Image = requestImage("Images/WoodPit1-6.png");
+		pit4Image = requestImage("Images/WoodPit1-6.png");
 		pit4 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
@@ -149,7 +149,7 @@ public class Board1 extends JPanel implements Board {
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit5Image = requestImage("Images/WoodPit1-6.png");
+		pit5Image = requestImage("Images/WoodPit1-6.png");
 		pit5 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
@@ -163,7 +163,7 @@ public class Board1 extends JPanel implements Board {
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit6Image = requestImage("Images/WoodPit1-6.png");
+		pit6Image = requestImage("Images/WoodPit1-6.png");
 		pit6 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
@@ -176,7 +176,7 @@ public class Board1 extends JPanel implements Board {
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit7Image = requestImage("Images/WoodPit7-12.png");
+		pit7Image = requestImage("Images/WoodPit7-12.png");
 		pit7 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
@@ -190,7 +190,7 @@ public class Board1 extends JPanel implements Board {
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit8Image = requestImage("Images/WoodPit7-12.png");
+		pit8Image = requestImage("Images/WoodPit7-12.png");
 		pit8 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
@@ -204,7 +204,7 @@ public class Board1 extends JPanel implements Board {
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit9Image = requestImage("Images/WoodPit7-12.png");
+		pit9Image = requestImage("Images/WoodPit7-12.png");
 		pit9 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
@@ -218,7 +218,7 @@ public class Board1 extends JPanel implements Board {
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit10Image = requestImage("Images/WoodPit7-12.png");
+		pit10Image = requestImage("Images/WoodPit7-12.png");
 		pit10 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
@@ -232,7 +232,7 @@ public class Board1 extends JPanel implements Board {
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit11Image = requestImage("Images/WoodPit7-12.png");
+		pit11Image = requestImage("Images/WoodPit7-12.png");
 		pit11 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
@@ -246,7 +246,7 @@ public class Board1 extends JPanel implements Board {
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
-		final Image pit12Image = requestImage("Images/WoodPit7-12.png");
+		pit12Image = requestImage("Images/WoodPit7-12.png");
 		pit12 = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {

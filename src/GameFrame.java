@@ -1,19 +1,10 @@
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
 
 public class GameFrame extends JFrame implements ChangeListener
 {
-	
 	private GameEngine e;
 	private Board1 panel1;
 	private Board2 panel2;
@@ -36,14 +27,6 @@ public class GameFrame extends JFrame implements ChangeListener
 		panel1 = new Board1(e);
 		panel1.prepare();
 		panel1.addListeners();
-		//panel1.addMarbleToBoard(panel1.pit6);
-//		for (int i = 0; i < e.current.count; i++)
-//			panel1.addMarbleToBoard(panel1.pitList.get(0));
-//		while(e.hasNextPit()){
-//			
-//		}
-		
-		//panel2 = new Board2();
 		this.setLayout(new BorderLayout());
 		this.setTitle("Mancala Game");
 		
@@ -62,24 +45,17 @@ public class GameFrame extends JFrame implements ChangeListener
 		undo2 = new JButton("UNDO");
 		
 		e.attach(this);
-		//this.revalidate();
 		drawFrame();
-		//this.revalidate();
-		this.validate();
-		panel1.validate();
 	}
 	
 	public void drawFrame()
-	{
-		//this.removeAll();
-		
+	{	
 		topPanel.setLayout(new BorderLayout());
 		textPanel1.setBackground(Color.WHITE);
 		topPanel.add(textPanel1, BorderLayout.NORTH);
 		buttonPanel1.setBackground(Color.WHITE);
 		topPanel.add(buttonPanel1, BorderLayout.SOUTH);
 		player1Area.setEditable(false); 
-		player1Area.setOpaque(false);
 		player1Area.setFont(new Font("Lucida Blackletter", Font.BOLD, 30));
 		textPanel1.add(player1Area, BorderLayout.CENTER);	
 		buttonPanel1.add(undo1, BorderLayout.EAST);
@@ -91,7 +67,6 @@ public class GameFrame extends JFrame implements ChangeListener
 		buttonPanel2.setBackground(Color.WHITE);
 		bottomPanel.add(buttonPanel2, BorderLayout.NORTH);
 		player2Area.setEditable(false); 
-		player2Area.setOpaque(false);
 		player2Area.setFont(new Font("Lucida Blackletter", Font.BOLD, 30));
 		textPanel2.add(player2Area, BorderLayout.CENTER);
 		
@@ -104,14 +79,22 @@ public class GameFrame extends JFrame implements ChangeListener
 		confirm1.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
+			public void actionPerformed(ActionEvent a) 
+			{	
 				e.player1Turn = false;
-				player1Area.setBackground(Color.RED);
-				player2Area.setBackground(Color.YELLOW);
-				player1Area.validate();
-				player2Area.validate();
+				player1Area.setBackground(Color.WHITE);
+				player2Area.setBackground(Color.GRAY);
 				repaint();
+			}
+			
+		});
+		
+		undo1.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
 			}
 			
 		});
@@ -119,14 +102,21 @@ public class GameFrame extends JFrame implements ChangeListener
 		confirm2.addActionListener(new ActionListener(){
 
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
+			public void actionPerformed(ActionEvent a) {
 				e.player1Turn = true;
-				player2Area.setBackground(Color.RED);
-				player1Area.setBackground(Color.YELLOW);
-				player1Area.validate();
-				player2Area.validate();
-				//repaint();
+				player2Area.setBackground(Color.WHITE);
+				player1Area.setBackground(Color.GRAY);
+				repaint();
+			}
+			
+		});
+		
+		undo2.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
 			}
 			
 		});
@@ -151,15 +141,15 @@ public class GameFrame extends JFrame implements ChangeListener
 	
 	public void removeMarbles(){
 		remove(panel1);
+		add(panel1);
 		repaint();
 	}
 	
 	@Override
 	public void stateChanged(ChangeEvent e) 
 	{
-		remove(panel1);
-		redistribute();
-		this.repaint();
-		add(panel1);
+		panel1.remove(panel1.pit1);
+		//this.repaint();
+		//add(panel1);
 	}
 }
