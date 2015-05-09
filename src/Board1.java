@@ -362,9 +362,9 @@ public class Board1 extends JPanel implements Board {
 	
 	public void addNumberOfMarble(JPanel panel, int i)
 	{
-		Marble marble = new Marble();
-		for(int x = 0 ; x <= i ; x ++ )
+		for(int x = 0 ; x < i ; x ++ )
 		{
+			Marble marble = new Marble();
 			panel.add(marble.makeMarble());
 		}
 	}

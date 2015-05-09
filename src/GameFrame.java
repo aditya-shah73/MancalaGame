@@ -76,6 +76,7 @@ public class GameFrame extends JFrame implements ChangeListener
 		add(bottomPanel, BorderLayout.SOUTH);
 		add(panel1, BorderLayout.CENTER);
 		
+		
 		confirm1.addActionListener(new ActionListener(){
 
 			@Override
@@ -130,22 +131,30 @@ public class GameFrame extends JFrame implements ChangeListener
 		for(int i = 0; i < e.BOARD_SIZE; i++){
 			count = e.current.count;
 			e.nextPit();
-			panel1.addNumberOfMarbles(panel1.pitList.get(i), count);
+			for(int j = 0; j < count; j++){
+				if(panel1.pitList.get(i) != null){
+					panel1.addMarbleToBoard(panel1.pitList.get(i));
+				}
+			}
 		}
 		
 	}
 	
 	public void removeMarbles(){
-		remove(panel1);
-		add(panel1);
+		//remove(panel1);
 		repaint();
 	}
 	
 	@Override
 	public void stateChanged(ChangeEvent e) 
 	{
-		panel1.remove(panel1.pit1);
-		//this.repaint();
+		//panel1.remove(panel1.pit1);
+		revalidate();
+		redistribute();
 		//add(panel1);
+		revalidate();
+		repaint();
+		revalidate();
 	}
+	
 }
