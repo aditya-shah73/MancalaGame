@@ -112,7 +112,8 @@ public class GameEngine {
 	}
 
 	public void update(Pit p) {
-		distribute(p);
+		if(p != null)
+			distribute(p);
 		checkWin();
 		for (ChangeListener l : listeners) {
 			l.stateChanged(new ChangeEvent(this));
@@ -164,6 +165,21 @@ public class GameEngine {
 			System.out.println(current);
 			nextPit();
 		}
+	}
+	
+	public void setMarbles(int n){
+		current = first;
+		for(int i = 0; i < BOARD_SIZE; i++){
+			if(!current.isAStore())
+				current.count = n;
+			
+			current = current.next;
+		}
+		update(null);
+	}
+	
+	public void setBoard(String s){
+		
 	}
 
 }

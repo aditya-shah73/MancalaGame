@@ -22,7 +22,7 @@ public class Board1 extends JPanel implements Board {
 	JPanel pit11;
 	JPanel pit12;
 	GameEngine g;
-	
+
 	Image pit1Image;
 	Image pit2Image;
 	Image pit3Image;
@@ -35,7 +35,7 @@ public class Board1 extends JPanel implements Board {
 	Image pit10Image;
 	Image pit11Image;
 	Image pit12Image;
-	
+
 	JPanel pitPanel;
 
 	public Board1(GameEngine ge) {
@@ -63,9 +63,8 @@ public class Board1 extends JPanel implements Board {
 
 		storePanelLeft.setPreferredSize(new Dimension(125, 224));
 		boardPanel.add(storePanelLeft, BorderLayout.WEST);
-		
-		storePanelLeft.setLayout(new GridLayout(0,4));
 
+		storePanelLeft.setLayout(new GridLayout(0, 4));
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -83,7 +82,7 @@ public class Board1 extends JPanel implements Board {
 		storePanelRight.setPreferredSize(new Dimension(125, 224));
 		boardPanel.add(storePanelRight, BorderLayout.EAST);
 
-		storePanelLeft.setLayout(new GridLayout(0,4));
+		storePanelRight.setLayout(new GridLayout(0, 4));
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -117,7 +116,7 @@ public class Board1 extends JPanel implements Board {
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
-		
+
 		pit2.setLayout(new GridLayout(0, 4));
 
 		// --------------------------------------------------------------------------------------------------------------------------------
@@ -144,7 +143,7 @@ public class Board1 extends JPanel implements Board {
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
-		
+
 		pit4.setLayout(new GridLayout(0, 4));
 
 		// --------------------------------------------------------------------------------------------------------------------------------
@@ -315,7 +314,7 @@ public class Board1 extends JPanel implements Board {
 	}
 
 	public void addMarbleToBoard(JPanel panel) {
-		JPanel p = new JPanel();		
+		JPanel p = new JPanel();
 		Marble mar = new Marble();
 		p.add(mar.makeMarble());
 		p.setOpaque(false);
@@ -332,38 +331,42 @@ public class Board1 extends JPanel implements Board {
 
 					@Override
 					public void mouseClicked(MouseEvent arg0) {
-						System.out.println((pitList.indexOf(arg0.getComponent())));
-						System.out.println("You have clicked a pit");
-						int counter = pitList.indexOf(arg0.getComponent());
-						
+						int pitNumber = pitList.indexOf(arg0.getComponent());
 						g.current = g.first;
-						
-						for(int i = 0; i < counter; i++){
+						int counter = pitList.indexOf(arg0.getComponent());
+						for (int i = 0; i < counter; i++) {
 							g.nextPit();
 						}
-						g.update(g.current);
+
+						if (g.current.isPlayer1() && g.player1Turn)
+							g.update(g.current);
+						
+						if (!g.current.isPlayer1() && !g.player1Turn)
+							g.update(g.current);
 					}
 
 					@Override
-					public void mouseEntered(MouseEvent arg0) {}
+					public void mouseEntered(MouseEvent arg0) {
+					}
 
 					@Override
-					public void mouseExited(MouseEvent arg0) {}
+					public void mouseExited(MouseEvent arg0) {
+					}
 
 					@Override
-					public void mousePressed(MouseEvent arg0) {}
+					public void mousePressed(MouseEvent arg0) {
+					}
 
 					@Override
-					public void mouseReleased(MouseEvent arg0) {}
+					public void mouseReleased(MouseEvent arg0) {
+					}
 
 				});
 		}
 	}
-	
-	public void addNumberOfMarble(JPanel panel, int i)
-	{
-		for(int x = 0 ; x < i ; x ++ )
-		{
+
+	public void addNumberOfMarble(JPanel panel, int i) {
+		for (int x = 0; x < i; x++) {
 			Marble marble = new Marble();
 			panel.add(marble.makeMarble());
 		}
