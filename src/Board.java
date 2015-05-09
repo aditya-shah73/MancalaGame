@@ -1,4 +1,5 @@
 import java.awt.Image;
+
 import javax.swing.JPanel;
 
 /**
@@ -12,4 +13,5 @@ public interface Board
 	public Image requestImage(String imageName);
 	public void addMarbleToBoard(JPanel panel);
 	public void addListeners();
+	public void addNumberOfMarble(JPanel panel, Marble marble);
 }

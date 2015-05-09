@@ -21,6 +21,8 @@ public class Pit
 	{
 		storage.add(m);
 		count++;
+		
+		
 	}
 	
 	public void removeAll()

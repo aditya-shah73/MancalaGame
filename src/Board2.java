@@ -1,4 +1,5 @@
 import java.awt.*;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.*;
@@ -460,6 +461,14 @@ public class Board2 extends JPanel implements Board {
 					public void mouseReleased(MouseEvent arg0) {}
 
 				});
+		}
+	}
+	public void addNumberOfMarble(JPanel panel, int i)
+	{
+		Marble marble = new Marble();
+		for(int x = 0 ; x <= i ; x ++ )
+		{
+			panel.add(marble.makeMarble());
 		}
 	}
 }
