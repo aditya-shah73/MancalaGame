@@ -1,5 +1,4 @@
 import java.awt.*;
-
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.*;
@@ -64,9 +63,9 @@ public class Board1 extends JPanel implements Board {
 
 		storePanelLeft.setPreferredSize(new Dimension(125, 224));
 		boardPanel.add(storePanelLeft, BorderLayout.WEST);
+		
 		storePanelLeft.setLayout(new GridLayout(0,4));
 
-		// ----------------------------------------------------
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -281,14 +280,14 @@ public class Board1 extends JPanel implements Board {
 		pitList.add(pit3);
 		pitList.add(pit2);
 		pitList.add(pit1);
-		pitList.add(null);
+		pitList.add(storePanelLeft);
 		pitList.add(pit7);
 		pitList.add(pit8);
 		pitList.add(pit9);
 		pitList.add(pit10);
 		pitList.add(pit11);
 		pitList.add(pit12);
-		pitList.add(null);
+		pitList.add(storePanelRight);
 		// --------------------------------------------------------------------------------------------------------------------------------
 
 		setSize(1000, 500);// ------------------------------------------------------------------------>

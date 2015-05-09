@@ -113,8 +113,48 @@ public class GameEngine {
 
 	public void update(Pit p) {
 		distribute(p);
+		checkWin();
 		for (ChangeListener l : listeners) {
 			l.stateChanged(new ChangeEvent(this));
+		}
+	}
+	
+	public void checkWin(){
+		current = first;
+		
+		int p1 = 0;
+		int p2 = 0;
+		
+		int storeCount1 = 0;
+		int storeCount2 = 0;
+		
+		for(int i = 0; i < BOARD_SIZE-1; i++){
+			if(!current.isAStore() && current.isPlayer1())
+				p1 += current.count;
+			if(!current.isAStore() && !current.isPlayer1())
+				p2 += current.count;
+			
+			if(current.isAStore() && current.isPlayer1())
+				storeCount1 = current.count;
+			
+			if(current.isAStore() && current.isPlayer1())
+				storeCount2 = current.count;
+			
+			nextPit();
+		}
+		System.out.println(p1 + " p2 " + p2);
+		System.out.println(storeCount1);
+		System.out.println(storeCount2);
+		if(p1 == 0 || p2 == 0){
+			storeCount1 += p1;
+			storeCount2 += p2;
+			
+			if(storeCount1 > storeCount2){
+				System.out.println("Player 1 Wins");
+			}else if (storeCount1 < storeCount2){
+				System.out.println("Player 2 Wins");
+			}else
+				System.out.println("tie");
 		}
 	}
 

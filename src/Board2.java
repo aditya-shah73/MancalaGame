@@ -895,11 +895,4 @@ public class Board2 extends JPanel implements Board {
 
 	}
 
-	@Override
-	public void addNumberOfMarble(JPanel panel, Marble marble) {
-
-		// TODO Auto-generated method stub
-
-	}
-
 }
