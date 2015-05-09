@@ -10,7 +10,6 @@ public interface Board
 {
 	public Board prepare();
 	public Image requestImage(String imageName);
-	public void makeBoard();
 	public void addMarbleToBoard(JPanel panel);
 	public void addListeners();
 }

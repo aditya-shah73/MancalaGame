@@ -105,15 +105,7 @@ public class Board1 extends JPanel implements Board {
 			}
 		};
 
-		// ----------------------------------------------------
-		pit1.setLayout(new BorderLayout());
-		JPanel counterPanel1 = new JPanel();
-		counterPanel1.setOpaque(false);
-		pit1.add(counterPanel1, BorderLayout.NORTH);
-		counterPanel1.setLayout(new BorderLayout());
-		JTextArea counterArea1 = new JTextArea("4");
-		counterArea1.setOpaque(false);
-		counterPanel1.add(counterArea1, BorderLayout.EAST);
+		pit1.setLayout(new GridLayout(0, 4));
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -126,16 +118,8 @@ public class Board1 extends JPanel implements Board {
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
-
-		// ----------------------------------------------------
-		pit2.setLayout(new BorderLayout());
-		JPanel counterPanel2 = new JPanel();
-		counterPanel2.setOpaque(false);
-		pit2.add(counterPanel2, BorderLayout.NORTH);
-		counterPanel2.setLayout(new BorderLayout());
-		JTextArea counterArea2 = new JTextArea("4");
-		counterArea2.setOpaque(false);
-		counterPanel2.add(counterArea2, BorderLayout.EAST);
+		
+		pit2.setLayout(new GridLayout(0, 4));
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -148,16 +132,7 @@ public class Board1 extends JPanel implements Board {
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
-
-		// ----------------------------------------------------
-		pit3.setLayout(new BorderLayout());
-		JPanel counterPanel3 = new JPanel();
-		counterPanel3.setOpaque(false);
-		pit3.add(counterPanel3, BorderLayout.NORTH);
-		counterPanel3.setLayout(new BorderLayout());
-		JTextArea counterArea3 = new JTextArea("4");
-		counterArea3.setOpaque(false);
-		counterPanel3.add(counterArea3, BorderLayout.EAST);
+		pit3.setLayout(new GridLayout(0, 4));
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -170,16 +145,8 @@ public class Board1 extends JPanel implements Board {
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
-
-		// ----------------------------------------------------
-		pit4.setLayout(new BorderLayout());
-		JPanel counterPanel4 = new JPanel();
-		counterPanel4.setOpaque(false);
-		pit4.add(counterPanel4, BorderLayout.NORTH);
-		counterPanel4.setLayout(new BorderLayout());
-		JTextArea counterArea4 = new JTextArea("4");
-		counterArea4.setOpaque(false);
-		counterPanel4.add(counterArea4, BorderLayout.EAST);
+		
+		pit4.setLayout(new GridLayout(0, 4));
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -192,15 +159,8 @@ public class Board1 extends JPanel implements Board {
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
-		// ----------------------------------------------------
-		pit5.setLayout(new BorderLayout());
-		JPanel counterPanel5 = new JPanel();
-		counterPanel5.setOpaque(false);
-		pit5.add(counterPanel5, BorderLayout.NORTH);
-		counterPanel5.setLayout(new BorderLayout());
-		JTextArea counterArea5 = new JTextArea("4");
-		counterArea5.setOpaque(false);
-		counterPanel5.add(counterArea5, BorderLayout.EAST);
+
+		pit5.setLayout(new GridLayout(0, 4));
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -213,24 +173,7 @@ public class Board1 extends JPanel implements Board {
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
-		pit6.setLayout(new GridLayout());
-		addMarbleToBoard(pit6);
-		addMarbleToBoard(pit6);
-		addMarbleToBoard(pit6);
-		Marble m = new Marble();
-		pit6.add(m.makeMarble());
-		// ----------------------------------------------------
-//		pit6.setLayout(new BorderLayout());
-//		JPanel counterPanel6 = new JPanel();
-//		counterPanel6.setOpaque(false);
-//		pit6.add(counterPanel6, BorderLayout.NORTH);
-//		counterPanel6.setLayout(new BorderLayout());
-//		JTextArea counterArea6 = new JTextArea("4");
-//		counterArea6.setOpaque(false);
-//		counterPanel6.add(counterArea6, BorderLayout.EAST);
-		
-//		JPanel marblePanel = new JPanel(new GridLayout(4,4));
-//		pit6.add(marblePanel, BorderLayout.CENTER);
+		pit6.setLayout(new GridLayout(0, 4));
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -243,15 +186,8 @@ public class Board1 extends JPanel implements Board {
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
-		// ----------------------------------------------------
-		pit7.setLayout(new BorderLayout());
-		JPanel counterPanel7 = new JPanel();
-		counterPanel7.setOpaque(false);
-		pit7.add(counterPanel7, BorderLayout.NORTH);
-		counterPanel7.setLayout(new BorderLayout());
-		JTextArea counterArea7 = new JTextArea("4");
-		counterArea7.setOpaque(false);
-		counterPanel7.add(counterArea7, BorderLayout.EAST);
+
+		pit7.setLayout(new GridLayout(0, 4));
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -264,15 +200,8 @@ public class Board1 extends JPanel implements Board {
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
-		// ----------------------------------------------------
-		pit8.setLayout(new BorderLayout());
-		JPanel counterPanel8 = new JPanel();
-		counterPanel8.setOpaque(false);
-		pit8.add(counterPanel8, BorderLayout.NORTH);
-		counterPanel8.setLayout(new BorderLayout());
-		JTextArea counterArea8 = new JTextArea("4");
-		counterArea8.setOpaque(false);
-		counterPanel8.add(counterArea8, BorderLayout.EAST);
+
+		pit8.setLayout(new GridLayout(0, 4));
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -285,15 +214,8 @@ public class Board1 extends JPanel implements Board {
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
-		// ----------------------------------------------------
-		pit9.setLayout(new BorderLayout());
-		JPanel counterPanel9 = new JPanel();
-		counterPanel9.setOpaque(false);
-		pit9.add(counterPanel9, BorderLayout.NORTH);
-		counterPanel9.setLayout(new BorderLayout());
-		JTextArea counterArea9 = new JTextArea("4");
-		counterArea9.setOpaque(false);
-		counterPanel9.add(counterArea9, BorderLayout.EAST);
+
+		pit9.setLayout(new GridLayout(0, 4));
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -306,15 +228,8 @@ public class Board1 extends JPanel implements Board {
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
-		// ----------------------------------------------------
-		pit10.setLayout(new BorderLayout());
-		JPanel counterPanel10 = new JPanel();
-		counterPanel10.setOpaque(false);
-		pit10.add(counterPanel10, BorderLayout.NORTH);
-		counterPanel10.setLayout(new BorderLayout());
-		JTextArea counterArea10 = new JTextArea("4");
-		counterArea10.setOpaque(false);
-		counterPanel10.add(counterArea10, BorderLayout.EAST);
+
+		pit10.setLayout(new GridLayout(0, 4));
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -327,15 +242,8 @@ public class Board1 extends JPanel implements Board {
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
-		// ----------------------------------------------------
-		pit11.setLayout(new BorderLayout());
-		JPanel counterPanel11 = new JPanel();
-		counterPanel11.setOpaque(false);
-		pit11.add(counterPanel11, BorderLayout.NORTH);
-		counterPanel11.setLayout(new BorderLayout());
-		JTextArea counterArea11 = new JTextArea("4");
-		counterArea11.setOpaque(false);
-		counterPanel11.add(counterArea11, BorderLayout.EAST);
+
+		pit11.setLayout(new GridLayout(0, 4));
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -348,15 +256,8 @@ public class Board1 extends JPanel implements Board {
 						pitPanel.getWidth() / 6, 112, 0), 0, 0, null);
 			}
 		};
-		// ----------------------------------------------------
-		pit12.setLayout(new BorderLayout());
-		JPanel counterPanel12 = new JPanel();
-		counterPanel12.setOpaque(false);
-		pit12.add(counterPanel12, BorderLayout.NORTH);
-		counterPanel12.setLayout(new BorderLayout());
-		JTextArea counterArea12 = new JTextArea("4");
-		counterArea12.setOpaque(false);
-		counterPanel12.add(counterArea12, BorderLayout.EAST);
+
+		pit12.setLayout(new GridLayout(0, 4));
 
 		// --------------------------------------------------------------------------------------------------------------------------------
 
@@ -412,16 +313,6 @@ public class Board1 extends JPanel implements Board {
 			e.printStackTrace();
 		}
 		return image;
-	}
-
-	public void makeBoard() {
-		SwingUtilities.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				new Board1(g).prepare();
-
-			}
-		});
 	}
 
 	public void addMarbleToBoard(JPanel panel) {

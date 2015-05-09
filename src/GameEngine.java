@@ -3,7 +3,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 public class GameEngine {
-	private final int BOARD_SIZE = 14;
+	final int BOARD_SIZE = 14;
 	ArrayList<ChangeListener> listeners;
 	Pit first;
 	Pit last;
@@ -56,7 +56,7 @@ public class GameEngine {
 			}
 			//current = current.next;
 		}
-		printList();
+		//printList();
 	}
 
 	public void nextPit() {

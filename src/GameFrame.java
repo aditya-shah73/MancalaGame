@@ -83,6 +83,19 @@ public class GameFrame extends JFrame implements ChangeListener
 		add(topPanel, BorderLayout.NORTH);
 		add(bottomPanel, BorderLayout.SOUTH);
 		add(panel1, BorderLayout.CENTER);
+		
+		distribute();
+	}
+	
+	public void distribute(){
+		int count = 0;
+		for(int i = 0; i < e.BOARD_SIZE; i++){
+			count = e.current.count;
+			for(int j = 0; j < count; j++){
+				if(panel1.pitList.get(i) != null)
+				panel1.addMarbleToBoard(panel1.pitList.get(i));
+			}
+		}
 	}
 	
 	@Override
