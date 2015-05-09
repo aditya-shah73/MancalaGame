@@ -53,11 +53,15 @@ public class GameFrame extends JFrame implements ChangeListener
 		undo2 = new JButton("UNDO");
 		
 		e.attach(this);
+		this.revalidate();
 		drawFrame();
+		this.revalidate();
 	}
 	
 	public void drawFrame()
 	{
+		//this.removeAll();
+		
 		topPanel.setLayout(new BorderLayout());
 		textPanel1.setBackground(Color.WHITE);
 		topPanel.add(textPanel1, BorderLayout.NORTH);
@@ -97,7 +101,6 @@ public class GameFrame extends JFrame implements ChangeListener
 			for(int j = 0; j < count; j++){
 				if(panel1.pitList.get(i) != null){
 					panel1.addMarbleToBoard(panel1.pitList.get(i));
-					System.out.println("reached");
 				}
 			}
 		}
@@ -113,8 +116,8 @@ public class GameFrame extends JFrame implements ChangeListener
 	public void stateChanged(ChangeEvent e) 
 	{
 		remove(panel1);
-		//removeMarbles();
-		//this.repaint();
-		//add(panel1);
+		redistribute();
+		this.repaint();
+		add(panel1);
 	}
 }

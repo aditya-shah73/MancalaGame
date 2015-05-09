@@ -335,6 +335,13 @@ public class Board1 extends JPanel implements Board {
 					public void mouseClicked(MouseEvent arg0) {
 						System.out.println((pitList.indexOf(arg0.getComponent())));
 						System.out.println("You have clicked a pit");
+						int counter = pitList.indexOf(arg0.getComponent());
+						
+						g.current = g.first;
+						
+						for(int i = 0; i < counter; i++){
+							g.nextPit();
+						}
 						g.update(g.current);
 					}
 

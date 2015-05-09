@@ -95,7 +95,7 @@ public class GameEngine {
 	}
 
 	public void update(Pit p) {
-		//distribute(first);
+		distribute(p);
 		for (ChangeListener l : listeners) {
 			l.stateChanged(new ChangeEvent(this));
 		}
