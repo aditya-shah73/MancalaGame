@@ -60,7 +60,7 @@ public class GameFrame extends JFrame implements ChangeListener
 		textPanel1.add(player1Area, BorderLayout.CENTER);	
 		buttonPanel1.add(undo1, BorderLayout.EAST);
 		buttonPanel1.add(confirm1, BorderLayout.WEST);
-		
+		player1Area.setBackground(Color.GRAY);
 		bottomPanel.setLayout(new BorderLayout());
 		textPanel2.setBackground(Color.WHITE);
 		bottomPanel.add(textPanel2, BorderLayout.SOUTH);
@@ -134,9 +134,11 @@ public class GameFrame extends JFrame implements ChangeListener
 			for(int j = 0; j < count; j++){
 				if(panel1.pitList.get(i) != null){
 					panel1.addMarbleToBoard(panel1.pitList.get(i));
+					repaint();
 				}
 			}
 		}
+		
 		
 	}
 	
@@ -149,12 +151,18 @@ public class GameFrame extends JFrame implements ChangeListener
 	public void stateChanged(ChangeEvent e) 
 	{
 		//panel1.remove(panel1.pit1);
-		revalidate();
+		
+		
+		for(JPanel j : panel1.pitList){
+			if(j != null)
+				j.removeAll();
+		}
+		
 		redistribute();
-		//add(panel1);
+		
 		revalidate();
+		add(panel1);
 		repaint();
-		revalidate();
 	}
 	
 }
