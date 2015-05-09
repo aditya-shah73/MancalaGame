@@ -55,4 +55,8 @@ public class Pit
 	{
 		isPlayer1 = true;
 	}
+	
+	public String toString(){
+		return position + " Is a Store " + isStore + " Player Status: " + isPlayer1;
+	}
 }
