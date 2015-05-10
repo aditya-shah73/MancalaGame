@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 /**
- * Node class of the linked list data structure.
- * @author dreamTeam.
+ * Each pit acts a node for the circular linked list board.
+ * @author DreamTeam.
  *
  */
 public class Pit
@@ -62,6 +62,7 @@ public class Pit
 	{
 		return isStore;
 	}
+	
 	/**
 	 * Sets isStore to true if the pit is one of the two stores.
 	 */
@@ -69,6 +70,7 @@ public class Pit
 	{
 		isStore = true;
 	}
+	
 	/**
 	 * Returns true if it is player1's pits.
 	 * @return isPlayer1.
@@ -85,10 +87,12 @@ public class Pit
 	{
 		isPlayer1 = true;
 	}
+	
 	/**
 	 * toString method for pit.
 	 */
-	public String toString(){
+	public String toString()
+	{
 		return this.position + " " + count;
 	}
 }

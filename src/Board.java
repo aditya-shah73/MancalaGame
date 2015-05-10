@@ -1,11 +1,9 @@
-import java.awt.Image;
-
-import javax.swing.JPanel;
+import java.awt.*;
+import javax.swing.*;
 
 /**
  * Creates a template for different kind of themes for board.
- * @author dreamTeam.
- *
+ * @author DreamTeam.
  */
 public interface Board 
 {

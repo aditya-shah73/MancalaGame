@@ -3,6 +3,12 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 
+/**
+ * The view and the controller for the game.
+ * It draws the game board.
+ * @author DreamTeam
+ *
+ */
 public class GameFrame extends JFrame implements ChangeListener
 {
 	private GameEngine g;
@@ -20,22 +26,26 @@ public class GameFrame extends JFrame implements ChangeListener
 	private JTextArea player2Area;
 	private JButton undo2;
 	private JButton confirm2;
-	
+
+	/**
+	 * Default constructor that initializes all the components
+	 * @param ge The instance of Game Engine
+	 */
 	public GameFrame (GameEngine ge)
 	{
 		g = ge;
-		
+
 		panel1 = new Board1(g);
 		panel1.prepare();
 		panel1.addListeners();
-		
+
 		panel2 = new Board2(g);
 		panel2.prepare();
 		panel2.addListeners();
-		
+
 		this.setLayout(new BorderLayout());
 		this.setTitle("Mancala Game");
-		
+
 		topPanel = new JPanel();
 		textPanel1 = new JPanel();
 		buttonPanel1 = new JPanel();
@@ -49,15 +59,17 @@ public class GameFrame extends JFrame implements ChangeListener
 		player2Area = new JTextArea("PLAYER 2");
 		confirm2 = new JButton("CONFIRM");
 		undo2 = new JButton("UNDO");
-		
+
 		g.attach(this);
 		drawFrame();
 	}
-	
+
+	/**
+	 * Draws all the components on the frame
+	 */
 	public void drawFrame()
 	{	
 		undo1.setText("UNDO - " + g.undoCount);
-		//validate();
 		topPanel.setLayout(new BorderLayout());
 		textPanel1.setBackground(Color.WHITE);
 		topPanel.add(textPanel1, BorderLayout.NORTH);
@@ -77,11 +89,12 @@ public class GameFrame extends JFrame implements ChangeListener
 		player2Area.setEditable(false); 
 		player2Area.setFont(new Font("Lucida Blackletter", Font.BOLD, 30));
 		textPanel2.add(player2Area, BorderLayout.CENTER);
-		
+
 		buttonPanel2.add(undo2, BorderLayout.EAST);
 		buttonPanel2.add(confirm2, BorderLayout.WEST);
 		add(topPanel, BorderLayout.NORTH);
 		add(bottomPanel, BorderLayout.SOUTH);
+
 		if(g.boardValue == 1)
 		{
 			add(panel1, BorderLayout.CENTER);
@@ -90,7 +103,7 @@ public class GameFrame extends JFrame implements ChangeListener
 		{
 			add(panel2, BorderLayout.CENTER);
 		}
-		
+
 		confirm1.addActionListener(new ActionListener()
 		{
 			@Override
@@ -105,20 +118,19 @@ public class GameFrame extends JFrame implements ChangeListener
 				undo1.setText("UNDO");
 				repaint();
 			}
-			
+
 		});
-		
+
 		undo1.addActionListener(new ActionListener()
 		{
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
-				// TODO Auto-generated method stub
 				g.undo();
 				undo1.setText("UNDO - " + g.undoCount);
 			}
 		});
-		
+
 		confirm2.addActionListener(new ActionListener()
 		{
 			@Override
@@ -134,7 +146,7 @@ public class GameFrame extends JFrame implements ChangeListener
 				repaint();
 			}
 		});
-		
+
 		undo2.addActionListener(new ActionListener()
 		{
 			@Override
@@ -143,11 +155,14 @@ public class GameFrame extends JFrame implements ChangeListener
 				g.undo();
 				undo2.setText("UNDO - " + g.undoCount);
 			}
-			
+
 		});
 		redistribute();
 	}
-	
+
+	/**
+	 * Redistributes the marbles on the panel and redraws the frame after a move
+	 */
 	public void redistribute()
 	{
 		int count = 0;
@@ -177,12 +192,15 @@ public class GameFrame extends JFrame implements ChangeListener
 			}
 		}
 	}
-	
+
+	/**
+	 * Repaints the frame to remove all marbles
+	 */
 	public void removeMarbles()
 	{
 		repaint();
 	}
-	
+
 	@Override
 	public void stateChanged(ChangeEvent e) 
 	{
