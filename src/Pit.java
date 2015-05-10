@@ -53,26 +53,40 @@ public class Pit
 		}
 	}
 	
+	/**
+	 * Returns true if the pit is a store.
+	 * @return isStore.
+	 */
 	public boolean isAStore()
 	{
 		return isStore;
 	}
-	
+	/**
+	 * Sets isStore to true if the pit is one of the two stores.
+	 */
 	public void setAStore()
 	{
 		isStore = true;
 	}
-	
+	/**
+	 * Returns true if it is player1's pits.
+	 * @return isPlayer1.
+	 */
 	public boolean isPlayer1()
 	{
 		return isPlayer1;
 	}
 	
+	/**
+	 * Sets pit's value to true if it is on player1's side.
+	 */
 	public void setPlayer1()
 	{
 		isPlayer1 = true;
 	}
-	
+	/**
+	 * toString method for pit.
+	 */
 	public String toString(){
 		return this.position + " " + count;
 	}
