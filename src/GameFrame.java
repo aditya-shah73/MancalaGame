@@ -41,7 +41,7 @@ public class GameFrame extends JFrame implements ChangeListener
 		buttonPanel1 = new JPanel();
 		player1Area = new JTextArea("PLAYER 1");
 		confirm1 = new JButton("CONFIRM");
-		undo1 = new JButton("UNDO");
+		undo1 = new JButton();
 
 		bottomPanel = new JPanel();
 		textPanel2 = new JPanel();
@@ -56,6 +56,7 @@ public class GameFrame extends JFrame implements ChangeListener
 	
 	public void drawFrame()
 	{	
+		undo1.setText("UNDO - " + g.undoCount);
 		//validate();
 		topPanel.setLayout(new BorderLayout());
 		textPanel1.setBackground(Color.WHITE);
@@ -97,8 +98,10 @@ public class GameFrame extends JFrame implements ChangeListener
 			{	
 				g.player1Turn = false;
 				g.undoCount = 3;
+				undo2.setText("UNDO - " + g.undoCount);
 				player1Area.setBackground(Color.WHITE);
 				player2Area.setBackground(Color.GRAY);
+				undo1.setText("UNDO");
 				repaint();
 			}
 			
@@ -111,6 +114,7 @@ public class GameFrame extends JFrame implements ChangeListener
 			{
 				// TODO Auto-generated method stub
 				g.undo();
+				undo1.setText("UNDO - " + g.undoCount);
 			}
 		});
 		
@@ -121,8 +125,10 @@ public class GameFrame extends JFrame implements ChangeListener
 			{
 				g.player1Turn = true;
 				g.undoCount = 3;
+				undo1.setText("UNDO - " + g.undoCount);
 				player2Area.setBackground(Color.WHITE);
 				player1Area.setBackground(Color.GRAY);
+				undo2.setText("UNDO");
 				repaint();
 			}
 		});
@@ -133,6 +139,7 @@ public class GameFrame extends JFrame implements ChangeListener
 			public void actionPerformed(ActionEvent e) 
 			{
 				g.undo();
+				undo2.setText("UNDO - " + g.undoCount);
 			}
 			
 		});
