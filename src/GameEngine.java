@@ -177,42 +177,41 @@ public class GameEngine {
 						nextPit();
 					}
 				}
-
-				if (specialCase) {
-					
-					current.count--;
-					int oppPosition = (BOARD_SIZE - 2) - current.position - current.position;
-					for(int j = 0; j < oppPosition; j++){
-						nextPit();
-					}
-					//int temp = current.count;
-					current.count += storeAdd;
-					System.out.println("Position = " + current.position);
-					System.out.println("Current = " + current.count);
-					
-					//boolean skipPit = false;
-					
-					while(!current.next.isAStore()){
-						nextPit();
-					}
-					nextPit();
-					while(!current.next.isAStore()){
-						nextPit();
-					}
-					
-					nextPit();
-					current.count -= storeAdd;
-					//current.count--;
-					System.out.println("Position = " + current.position);
-					System.out.println("Current = " + current.count);
-//					
-//					for(int k = 0; k < BOARD_SIZE - oppPosition; k++){
-//						
-//					}
-				}
-				specialCase = false;
 				current.count--;
 			}
+			if (specialCase) {
+				
+				current.count--;
+				int oppPosition = (BOARD_SIZE - 2) - current.position - current.position;
+				for(int j = 0; j < oppPosition; j++){
+					nextPit();
+				}
+				//int temp = current.count;
+				current.count += storeAdd;
+				System.out.println("Position = " + current.position);
+				System.out.println("Current = " + current.count);
+				
+				//boolean skipPit = false;
+				
+				while(!current.next.isAStore()){
+					nextPit();
+				}
+				nextPit();
+				while(!current.next.isAStore()){
+					nextPit();
+				}
+				
+				nextPit();
+				current.count -= storeAdd;
+				//current.count--;
+				System.out.println("Position = " + current.position);
+				System.out.println("Current = " + current.count);
+//				
+//				for(int k = 0; k < BOARD_SIZE - oppPosition; k++){
+//					
+//				}
+			}
+			specialCase = false;
 			update(null);
 
 			undoCount--;
