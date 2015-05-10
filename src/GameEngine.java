@@ -128,32 +128,7 @@ public class GameEngine
 				}
 			}
 
-			if (current.count == 0 && !current.isAStore()) 
-			{
-				current.count++;
-				int oppPosition = (BOARD_SIZE - 2) - current.position - current.position;
-				for(int j = 0; j < oppPosition; j++)
-				{
-					nextPit();
-				}
-				int temp = current.count;
-				current.count = 0;
-
-				while(!current.next.isAStore())
-				{
-					nextPit();
-				}
-				nextPit();
-				while(!current.next.isAStore())
-				{
-					nextPit();
-				}
-				nextPit();
-				storeAdd = temp;
-				current.count += temp;
-				current.count--;
-				specialCase = true;
-			}
+			
 			current.count++;
 
 			if (current.isAStore()) 
