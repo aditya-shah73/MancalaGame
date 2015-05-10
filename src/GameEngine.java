@@ -19,9 +19,11 @@ public class GameEngine {
 	boolean moveDone;
 	boolean landsOnStore;
 	public int boardValue;
+	int storeAdd;
 	// true - Player1
 	// false - Player2
 	boolean player1Turn;
+	boolean specialCase;
 
 	// 0-5 Player 1
 	// 7-12 Player 2
@@ -39,6 +41,8 @@ public class GameEngine {
 		player1Turn = true;
 		moveDone = false;
 		landsOnStore = false;
+		storeAdd = 0;
+		specialCase = false;
 	}
 
 	// first is a pit, last is a store
@@ -118,16 +122,12 @@ public class GameEngine {
 			if (current.count == 0 && !current.isAStore()) {
 				current.count++;
 				int oppPosition = (BOARD_SIZE - 2) - current.position - current.position;
-				System.out.println("Current Position - " + current.position);
-				System.out.println("Opposite Position - " + oppPosition);
 				for(int j = 0; j < oppPosition; j++){
 					nextPit();
 				}
 				int temp = current.count;
 				current.count = 0;
 				
-				boolean skipPit = false;
-				
 				while(!current.next.isAStore()){
 					nextPit();
 				}
@@ -136,8 +136,10 @@ public class GameEngine {
 					nextPit();
 				}
 				nextPit();
+				storeAdd = temp;
 				current.count += temp;
 				current.count--;
+				specialCase = true;
 //				
 //				for(int k = 0; k < BOARD_SIZE - oppPosition; k++){
 //					
@@ -164,8 +166,8 @@ public class GameEngine {
 			current = previous;
 
 			int count = previousValue;
+			
 			current.count = count;
-			System.out.println("count: " + count);
 			for (int i = 0; i < count; i++) {
 				nextPit();
 				if (current.isAStore()) {
@@ -176,13 +178,42 @@ public class GameEngine {
 					}
 				}
 
-				if (current.next.count == 0) {
-					// Implement later
+				if (specialCase) {
+					
+					current.count--;
+					int oppPosition = (BOARD_SIZE - 2) - current.position - current.position;
+					for(int j = 0; j < oppPosition; j++){
+						nextPit();
+					}
+					//int temp = current.count;
+					current.count += storeAdd;
+					System.out.println("Position = " + current.position);
+					System.out.println("Current = " + current.count);
+					
+					//boolean skipPit = false;
+					
+					while(!current.next.isAStore()){
+						nextPit();
+					}
+					nextPit();
+					while(!current.next.isAStore()){
+						nextPit();
+					}
+					
+					nextPit();
+					current.count -= storeAdd;
+					//current.count--;
+					System.out.println("Position = " + current.position);
+					System.out.println("Current = " + current.count);
+//					
+//					for(int k = 0; k < BOARD_SIZE - oppPosition; k++){
+//						
+//					}
 				}
+				specialCase = false;
 				current.count--;
 			}
 			update(null);
-			printList();
 
 			undoCount--;
 			undoDone = true;
@@ -229,31 +260,20 @@ public class GameEngine {
 
 			nextPit();
 		}
-		System.out.println(p1 + " p2 " + p2);
-		System.out.println(storeCount1);
-		System.out.println(storeCount2);
+		
+		
 		if (p1 == 0 || p2 == 0) {
 			storeCount1 += p1;
 			storeCount2 += p2;
 
 			if (storeCount1 > storeCount2) {
-				System.out.println("Player 1 Wins");
 				JOptionPane.showMessageDialog(new JFrame(), "Player 1 Wins");
 			} else if (storeCount1 < storeCount2) {
-				System.out.println("Player 2 Wins");
 				JOptionPane.showMessageDialog(new JFrame(), "Player 2 Wins");
 			} else
 				JOptionPane.showMessageDialog(new JFrame(), "Tie");
 		}
 		
-	}
-
-	public void printList() {
-		current = first;
-		for (int i = 0; i < 14; i++) {
-			System.out.println(current);
-			nextPit();
-		}
 	}
 
 	public void setMarbles(int n) {
