@@ -604,8 +604,8 @@ public class Board1 extends JPanel implements Board {
 							
 							if (!g.current.isPlayer1() && !g.player1Turn)
 								g.update(g.current);
-							
-							g.moveDone = true;
+							if(!g.landsOnStore)
+								g.moveDone = true;
 						}
 					}
 

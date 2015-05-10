@@ -11,6 +11,7 @@ public class Pit
 	private boolean isPlayer1;
 	int count;
 	Pit next;
+	Pit opposite;
 	int position;
 	
 	/**

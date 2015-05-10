@@ -17,6 +17,7 @@ public class GameEngine {
 	int previousValue;
 	boolean undoDone;
 	boolean moveDone;
+	boolean landsOnStore;
 	public int boardValue;
 	// true - Player1
 	// false - Player2
@@ -37,6 +38,7 @@ public class GameEngine {
 		current = first;
 		player1Turn = true;
 		moveDone = false;
+		landsOnStore = false;
 	}
 
 	// first is a pit, last is a store
@@ -77,7 +79,13 @@ public class GameEngine {
 				current.setAStore();
 				current.count = 0;
 			}
+			
+			
 			// current = current.next;
+		}
+		
+		for(int i = 0; i < BOARD_SIZE; i++){
+			
 		}
 		// printList();
 	}
@@ -106,12 +114,43 @@ public class GameEngine {
 				}
 			}
 
-			if (current.next.count == 0) {
-				// Implement later
+			
+			if (current.count == 0 && !current.isAStore()) {
+				current.count++;
+				int oppPosition = (BOARD_SIZE - 2) - current.position - current.position;
+				System.out.println("Current Position - " + current.position);
+				System.out.println("Opposite Position - " + oppPosition);
+				for(int j = 0; j < oppPosition; j++){
+					nextPit();
+				}
+				int temp = current.count;
+				current.count = 0;
+				
+				boolean skipPit = false;
+				
+				while(!current.next.isAStore()){
+					nextPit();
+				}
+				nextPit();
+				while(!current.next.isAStore()){
+					nextPit();
+				}
+				nextPit();
+				current.count += temp;
+				current.count--;
+//				
+//				for(int k = 0; k < BOARD_SIZE - oppPosition; k++){
+//					
+//				}
 			}
 			current.count++;
+
+			if (current.isAStore()) {
+				landsOnStore = true;
+			}else{
+				landsOnStore = false;
+			}
 		}
-		printList();
 	}
 
 	public void attach(ChangeListener l) {
@@ -119,6 +158,7 @@ public class GameEngine {
 	}
 
 	public void undo() {
+		landsOnStore = false;
 		if (undoCount != 0 && !undoDone) {
 
 			current = previous;
@@ -203,8 +243,9 @@ public class GameEngine {
 				System.out.println("Player 2 Wins");
 				JOptionPane.showMessageDialog(new JFrame(), "Player 2 Wins");
 			} else
-				System.out.println("tie");
+				JOptionPane.showMessageDialog(new JFrame(), "Tie");
 		}
+		
 	}
 
 	public void printList() {
@@ -226,17 +267,13 @@ public class GameEngine {
 		update(null);
 	}
 
-	public void setBoard(String s) 
-	{
-		if(s.equalsIgnoreCase("Wood"))
-		{
+	public void setBoard(String s) {
+		if (s.equalsIgnoreCase("Wood")) {
 			boardValue = 1;
-		}
-		else if(s.equalsIgnoreCase("Ceramic"))
-		{
+		} else if (s.equalsIgnoreCase("Ceramic")) {
 			boardValue = 2;
 		}
-		
+
 		update(null);
 	}
 }
