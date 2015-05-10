@@ -104,7 +104,7 @@ public class Settings
 
 	public String[] themeChoice() 
 	{
-		String[] t = {"Ceramic" ,"Wood"};
+		String[] t = {"Wood", "Ceramic"};
 		return t;
 	}
 }

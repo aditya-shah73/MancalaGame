@@ -230,11 +230,13 @@ public class GameEngine {
 	{
 		if(s.equalsIgnoreCase("Wood"))
 		{
-			boardValue = 2;
+			boardValue = 1;
+			update(null);
 		}
 		else if(s.equalsIgnoreCase("Ceramic"))
 		{
-			boardValue = 1;
+			boardValue = 2;
+			update(null);
 		}
 	}
 }

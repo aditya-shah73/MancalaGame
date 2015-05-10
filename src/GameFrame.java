@@ -32,14 +32,6 @@ public class GameFrame extends JFrame implements ChangeListener
 		panel2 = new Board2(g);
 		panel2.prepare();
 		panel2.addListeners();
-		if(g.boardValue == 1)
-		{
-			
-		}
-		else if (g.boardValue == 2)
-		{
-			
-		}
 		this.setLayout(new BorderLayout());
 		this.setTitle("Mancala Game");
 		
@@ -63,6 +55,7 @@ public class GameFrame extends JFrame implements ChangeListener
 	
 	public void drawFrame()
 	{	
+		revalidate();
 		topPanel.setLayout(new BorderLayout());
 		textPanel1.setBackground(Color.WHITE);
 		topPanel.add(textPanel1, BorderLayout.NORTH);
