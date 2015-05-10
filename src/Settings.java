@@ -71,6 +71,7 @@ public class Settings
 			{
 				numberOfMarbles = (int) b1.getSelectedItem();
 				g.setMarbles(numberOfMarbles);
+				//g.update(null);
 			}
 		});
 
@@ -82,7 +83,7 @@ public class Settings
 				input = (String) b2.getSelectedItem();
 				g.setBoard(input);
 				System.out.println(input);
-				g.update(null);
+				//g.update(null);
 			}
 		});
 		
@@ -91,7 +92,11 @@ public class Settings
 			@Override
 			public void actionPerformed(ActionEvent e) 
 			{
+				
 				frame.dispose();
+				frame.validate();
+				g.update(null);
+				
 			}
 		});
 	}

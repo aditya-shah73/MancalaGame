@@ -29,7 +29,7 @@ public class GameEngine {
 	 * This is the default constructor which initializes the back end.
 	 */
 	public GameEngine() {
-		boardValue = 1;
+		boardValue = 2;
 		undoDone = false;
 		undoCount = 3;
 		initiatePits();
@@ -231,12 +231,12 @@ public class GameEngine {
 		if(s.equalsIgnoreCase("Wood"))
 		{
 			boardValue = 1;
-			update(null);
 		}
 		else if(s.equalsIgnoreCase("Ceramic"))
 		{
 			boardValue = 2;
-			update(null);
 		}
+		
+		update(null);
 	}
 }
