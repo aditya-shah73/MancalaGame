@@ -592,18 +592,21 @@ public class Board1 extends JPanel implements Board {
 
 					@Override
 					public void mouseClicked(MouseEvent arg0) {
-						//int pitNumber = pitList.indexOf(arg0.getComponent());
-						g.current = g.first;
-						int counter = pitList.indexOf(arg0.getComponent());
-						for (int i = 0; i < counter; i++) {
-							g.nextPit();
+						if(!g.moveDone){	
+							g.current = g.first;
+							int counter = pitList.indexOf(arg0.getComponent());
+							for (int i = 0; i < counter; i++) {
+								g.nextPit();
+							}
+	
+							if (g.current.isPlayer1() && g.player1Turn)
+								g.update(g.current);
+							
+							if (!g.current.isPlayer1() && !g.player1Turn)
+								g.update(g.current);
+							
+							g.moveDone = true;
 						}
-
-						if (g.current.isPlayer1() && g.player1Turn)
-							g.update(g.current);
-						
-						if (!g.current.isPlayer1() && !g.player1Turn)
-							g.update(g.current);
 					}
 
 					@Override

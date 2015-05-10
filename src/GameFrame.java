@@ -97,6 +97,7 @@ public class GameFrame extends JFrame implements ChangeListener
 			public void actionPerformed(ActionEvent a) 
 			{	
 				g.player1Turn = false;
+				g.moveDone = false;
 				g.undoCount = 3;
 				undo2.setText("UNDO - " + g.undoCount);
 				player1Area.setBackground(Color.WHITE);
@@ -125,6 +126,7 @@ public class GameFrame extends JFrame implements ChangeListener
 			{
 				g.player1Turn = true;
 				g.undoCount = 3;
+				g.moveDone = false;
 				undo1.setText("UNDO - " + g.undoCount);
 				player2Area.setBackground(Color.WHITE);
 				player1Area.setBackground(Color.GRAY);

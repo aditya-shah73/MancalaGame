@@ -587,23 +587,26 @@ public class Board2 extends JPanel implements Board {
 		// TODO Auto-generated method stub
 		for (JPanel j : pitList) {
 
-			if (j != null)
+			if (!(pitList.indexOf(j) == g.BOARD_SIZE/2 -1 || pitList.indexOf(j) == g.BOARD_SIZE - 1)){
 				j.addMouseListener(new MouseListener() {
 
 					@Override
 					public void mouseClicked(MouseEvent arg0) {
-						int pitNumber = pitList.indexOf(arg0.getComponent());
-						g.current = g.first;
-						int counter = pitList.indexOf(arg0.getComponent());
-						for (int i = 0; i < counter; i++) {
-							g.nextPit();
+						if(!g.moveDone){	
+							g.current = g.first;
+							int counter = pitList.indexOf(arg0.getComponent());
+							for (int i = 0; i < counter; i++) {
+								g.nextPit();
+							}
+	
+							if (g.current.isPlayer1() && g.player1Turn)
+								g.update(g.current);
+							
+							if (!g.current.isPlayer1() && !g.player1Turn)
+								g.update(g.current);
+							
+							g.moveDone = true;
 						}
-
-						if (g.current.isPlayer1() && g.player1Turn)
-							g.update(g.current);
-						
-						if (!g.current.isPlayer1() && !g.player1Turn)
-							g.update(g.current);
 					}
 
 					@Override
@@ -623,6 +626,7 @@ public class Board2 extends JPanel implements Board {
 					}
 
 				});
+			}
 		}
 	}
 
