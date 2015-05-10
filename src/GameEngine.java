@@ -1,4 +1,7 @@
 import java.util.*;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -8,12 +11,15 @@ public class GameEngine {
 	Pit first;
 	Pit last;
 	int position = 0;
+	int undoCount;
 	Pit current;
 	Pit previous;
 	int previousValue;
-	
-	//true - Player1
-	//false - Player2
+	boolean undoDone;
+	boolean moveDone;
+	public int boardValue;
+	// true - Player1
+	// false - Player2
 	boolean player1Turn;
 
 	// 0-5 Player 1
@@ -23,10 +29,14 @@ public class GameEngine {
 	 * This is the default constructor which initializes the back end.
 	 */
 	public GameEngine() {
+		boardValue = 1;
+		undoDone = false;
+		undoCount = 3;
 		initiatePits();
 		listeners = new ArrayList<ChangeListener>();
 		current = first;
 		player1Turn = true;
+		moveDone = false;
 	}
 
 	// first is a pit, last is a store
@@ -36,7 +46,7 @@ public class GameEngine {
 		first.position = 0;
 		first.setPlayer1();
 		first.count = 3;
-		first.next = new Pit(); //Pit2
+		first.next = new Pit(); // Pit2
 		current = first.next;
 		current.setPlayer1();
 		current.position = 1;
@@ -67,9 +77,9 @@ public class GameEngine {
 				current.setAStore();
 				current.count = 0;
 			}
-			//current = current.next;
+			// current = current.next;
 		}
-		//printList();
+		// printList();
 	}
 
 	public void nextPit() {
@@ -81,20 +91,21 @@ public class GameEngine {
 	// weird rule later
 	public void distribute(Pit p) {
 		previous = p;
+		previousValue = p.count;
 		current = p;
 		int count = p.count;
 		current.count = 0;
-		
+
 		for (int i = 0; i < count; i++) {
 			nextPit();
 			if (current.isAStore()) {
-				if(player1Turn && current == last){
+				if (player1Turn && current == last) {
 					nextPit();
-				}else if(!player1Turn && current != last){
+				} else if (!player1Turn && current != last) {
 					nextPit();
 				}
 			}
-			
+
 			if (current.next.count == 0) {
 				// Implement later
 			}
@@ -106,29 +117,36 @@ public class GameEngine {
 	public void attach(ChangeListener l) {
 		listeners.add(l);
 	}
-	
-	public void undo(){
-		current = previous;
-		
-		int count = previousValue;
-		current.count = count;
-		
-		for (int i = 0; i < count; i++) {
-			nextPit();
-			if (current.isAStore()) {
-				if(player1Turn && current == last){
-					nextPit();
-				}else if(!player1Turn && current != last){
-					nextPit();
+
+	public void undo() {
+		if (undoCount != 0 && !undoDone) {
+
+			current = previous;
+
+			int count = previousValue;
+			current.count = count;
+			System.out.println("count: " + count);
+			for (int i = 0; i < count; i++) {
+				nextPit();
+				if (current.isAStore()) {
+					if (player1Turn && current == last) {
+						nextPit();
+					} else if (!player1Turn && current != last) {
+						nextPit();
+					}
 				}
+
+				if (current.next.count == 0) {
+					// Implement later
+				}
+				current.count--;
 			}
-			
-			if (current.next.count == 0) {
-				// Implement later
-			}
-			current.count--;
+			update(null);
+			printList();
+
+			undoCount--;
+			undoDone = true;
 		}
-		printList();
 	}
 
 	public boolean hasNextPit() {
@@ -139,49 +157,52 @@ public class GameEngine {
 	}
 
 	public void update(Pit p) {
-		if(p != null)
+		undoDone = false;
+		if (p != null)
 			distribute(p);
 		checkWin();
 		for (ChangeListener l : listeners) {
 			l.stateChanged(new ChangeEvent(this));
 		}
 	}
-	
-	public void checkWin(){
+
+	public void checkWin() {
 		current = first;
-		
+
 		int p1 = 0;
 		int p2 = 0;
-		
+
 		int storeCount1 = 0;
 		int storeCount2 = 0;
-		
-		for(int i = 0; i < BOARD_SIZE-1; i++){
-			if(!current.isAStore() && current.isPlayer1())
+
+		for (int i = 0; i < BOARD_SIZE - 1; i++) {
+			if (!current.isAStore() && current.isPlayer1())
 				p1 += current.count;
-			if(!current.isAStore() && !current.isPlayer1())
+			if (!current.isAStore() && !current.isPlayer1())
 				p2 += current.count;
-			
-			if(current.isAStore() && current.isPlayer1())
+
+			if (current.isAStore() && current.isPlayer1())
 				storeCount1 = current.count;
-			
-			if(current.isAStore() && current.isPlayer1())
+
+			if (current.isAStore() && current.isPlayer1())
 				storeCount2 = current.count;
-			
+
 			nextPit();
 		}
 		System.out.println(p1 + " p2 " + p2);
 		System.out.println(storeCount1);
 		System.out.println(storeCount2);
-		if(p1 == 0 || p2 == 0){
+		if (p1 == 0 || p2 == 0) {
 			storeCount1 += p1;
 			storeCount2 += p2;
-			
-			if(storeCount1 > storeCount2){
+
+			if (storeCount1 > storeCount2) {
 				System.out.println("Player 1 Wins");
-			}else if (storeCount1 < storeCount2){
+				JOptionPane.showMessageDialog(new JFrame(), "Player 1 Wins");
+			} else if (storeCount1 < storeCount2) {
 				System.out.println("Player 2 Wins");
-			}else
+				JOptionPane.showMessageDialog(new JFrame(), "Player 2 Wins");
+			} else
 				System.out.println("tie");
 		}
 	}
@@ -193,20 +214,27 @@ public class GameEngine {
 			nextPit();
 		}
 	}
-	
-	public void setMarbles(int n){
+
+	public void setMarbles(int n) {
 		current = first;
-		for(int i = 0; i < BOARD_SIZE; i++){
-			if(!current.isAStore())
+		for (int i = 0; i < BOARD_SIZE; i++) {
+			if (!current.isAStore())
 				current.count = n;
-			
+
 			current = current.next;
 		}
 		update(null);
 	}
-	
-	public void setBoard(String s){
-		
-	}
 
+	public void setBoard(String s) 
+	{
+		if(s.equalsIgnoreCase("Wood"))
+		{
+			boardValue = 2;
+		}
+		else if(s.equalsIgnoreCase("Ceramic"))
+		{
+			boardValue = 1;
+		}
+	}
 }

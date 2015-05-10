@@ -5,7 +5,7 @@ import javax.swing.event.*;
 
 public class GameFrame extends JFrame implements ChangeListener
 {
-	private GameEngine e;
+	private GameEngine g;
 	private Board1 panel1;
 	private Board2 panel2;
 	private JPanel topPanel;
@@ -23,10 +23,23 @@ public class GameFrame extends JFrame implements ChangeListener
 	
 	public GameFrame (GameEngine ge)
 	{
-		e = ge;
-		panel1 = new Board1(e);
+		g = ge;
+		
+		panel1 = new Board1(g);
 		panel1.prepare();
 		panel1.addListeners();
+		
+		panel2 = new Board2(g);
+		panel2.prepare();
+		panel2.addListeners();
+		if(g.boardValue == 1)
+		{
+			
+		}
+		else if (g.boardValue == 2)
+		{
+			
+		}
 		this.setLayout(new BorderLayout());
 		this.setTitle("Mancala Game");
 		
@@ -44,7 +57,7 @@ public class GameFrame extends JFrame implements ChangeListener
 		confirm2 = new JButton("CONFIRM");
 		undo2 = new JButton("UNDO");
 		
-		e.attach(this);
+		g.attach(this);
 		drawFrame();
 	}
 	
@@ -74,15 +87,22 @@ public class GameFrame extends JFrame implements ChangeListener
 		buttonPanel2.add(confirm2, BorderLayout.WEST);
 		add(topPanel, BorderLayout.NORTH);
 		add(bottomPanel, BorderLayout.SOUTH);
-		add(panel1, BorderLayout.CENTER);
+		if(g.boardValue == 1)
+		{
+			add(panel1, BorderLayout.CENTER);
+		}
+		else if(g.boardValue == 2)
+		{
+			add(panel2, BorderLayout.CENTER);
+		}
 		
-		
-		confirm1.addActionListener(new ActionListener(){
-
+		confirm1.addActionListener(new ActionListener()
+		{
 			@Override
 			public void actionPerformed(ActionEvent a) 
 			{	
-				e.player1Turn = false;
+				g.player1Turn = false;
+				g.undoCount = 3;
 				player1Area.setBackground(Color.WHITE);
 				player2Area.setBackground(Color.GRAY);
 				repaint();
@@ -90,79 +110,106 @@ public class GameFrame extends JFrame implements ChangeListener
 			
 		});
 		
-		undo1.addActionListener(new ActionListener(){
-
+		undo1.addActionListener(new ActionListener()
+		{
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) 
+			{
 				// TODO Auto-generated method stub
-				
+				g.undo();
 			}
-			
 		});
 		
-		confirm2.addActionListener(new ActionListener(){
-
+		confirm2.addActionListener(new ActionListener()
+		{
 			@Override
-			public void actionPerformed(ActionEvent a) {
-				e.player1Turn = true;
+			public void actionPerformed(ActionEvent a) 
+			{
+				g.player1Turn = true;
+				g.undoCount = 3;
 				player2Area.setBackground(Color.WHITE);
 				player1Area.setBackground(Color.GRAY);
 				repaint();
 			}
-			
 		});
 		
-		undo2.addActionListener(new ActionListener(){
-
+		undo2.addActionListener(new ActionListener()
+		{
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
+			public void actionPerformed(ActionEvent e) 
+			{
+				g.undo();
 			}
 			
 		});
-		
 		redistribute();
 	}
 	
-	public void redistribute(){
+	public void redistribute()
+	{
 		int count = 0;
-		e.current = e.first;
-		for(int i = 0; i < e.BOARD_SIZE; i++){
-			count = e.current.count;
-			e.nextPit();
-			for(int j = 0; j < count; j++){
-				if(panel1.pitList.get(i) != null){
-					panel1.addMarbleToBoard(panel1.pitList.get(i));
-					repaint();
+		g.current = g.first;
+		for(int i = 0; i < g.BOARD_SIZE; i++)
+		{
+			count = g.current.count;
+			g.nextPit();
+			for(int j = 0; j < count; j++)
+			{
+				if(g.boardValue == 1)
+				{
+					if(panel1.pitList.get(i) != null)
+					{
+						panel1.addMarbleToBoard(panel1.pitList.get(i));
+						repaint();
+					}
+				}
+				else if(g.boardValue == 2)
+				{
+					if(panel2.pitList.get(i) != null)
+					{
+						panel2.addMarbleToBoard(panel2.pitList.get(i));
+						repaint();
+					}
 				}
 			}
 		}
-		
-		
 	}
 	
-	public void removeMarbles(){
-		//remove(panel1);
+	public void removeMarbles()
+	{
 		repaint();
 	}
 	
 	@Override
 	public void stateChanged(ChangeEvent e) 
 	{
-		//panel1.remove(panel1.pit1);
-		
-		
-		for(JPanel j : panel1.pitList){
-			if(j != null)
-				j.removeAll();
-		}
-		
-		redistribute();
-		
-		revalidate();
-		add(panel1);
-		repaint();
+		if(g.boardValue == 1)
+		{
+			for(JPanel j : panel1.pitList)
+			{
+				if(j != null)
+				{
+					j.removeAll();
+				}
+			}
+			redistribute();
+			revalidate();
+			add(panel1);
+			repaint();
+		}	
+		else if(g.boardValue == 2)
+		{
+			for(JPanel j : panel2.pitList)
+			{
+				if(j != null)
+				{
+					j.removeAll();
+				}
+			}
+			redistribute();
+			revalidate();
+			add(panel2);
+			repaint();
+		}	
 	}
-	
 }

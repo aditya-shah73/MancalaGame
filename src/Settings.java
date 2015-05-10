@@ -70,7 +70,6 @@ public class Settings
 			public void actionPerformed(ActionEvent e) 
 			{
 				numberOfMarbles = (int) b1.getSelectedItem();
-				System.out.println(numberOfMarbles);
 				g.setMarbles(numberOfMarbles);
 			}
 		});
@@ -81,8 +80,9 @@ public class Settings
 			public void actionPerformed(ActionEvent e) 
 			{
 				input = (String) b2.getSelectedItem();
-				System.out.println(input);
 				g.setBoard(input);
+				System.out.println(input);
+				g.update(null);
 			}
 		});
 		

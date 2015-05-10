@@ -10,7 +10,7 @@ public class MancalaTester
 		frame.pack();
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//frame.setResizable();
+		frame.setResizable(false);
 		frame.validate();
 	}
 }
