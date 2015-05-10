@@ -3,8 +3,8 @@ import java.awt.Image;
 import javax.swing.JPanel;
 
 /**
- * 
- * @author user
+ * Creates a template for different kind of themes for board.
+ * @author dreamTeam.
  *
  */
 public interface Board 

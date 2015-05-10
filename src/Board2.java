@@ -1,4 +1,5 @@
 import java.awt.*;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.*;
@@ -6,7 +7,11 @@ import java.util.ArrayList;
 
 import javax.imageio.*;
 import javax.swing.*;
-
+	/**
+	 * Ceramic board for Mancala.
+	 * @author dreamTeam.
+	 *
+	 */
 public class Board2 extends JPanel implements Board {
 	ArrayList<JPanel> pitList;
 	JPanel pit1, pit2, pit3, pit4, pit5, pit6, pit7, pit8, pit9, pit10, pit11, pit12 ;
@@ -27,7 +32,10 @@ public class Board2 extends JPanel implements Board {
 	
 
 	JPanel pitPanel;
-
+	/**
+	 * Constructor for Board2.
+	 * @param ge Instance of GameEngine class.
+	 */
 	public Board2(GameEngine ge) {
 		g = ge;
 		pitList = new ArrayList<JPanel>();
@@ -74,7 +82,11 @@ public class Board2 extends JPanel implements Board {
 		pit11 = new JPanel();	north11 = new JPanel();		south11 = new JPanel();		east11 = new JPanel();		west11 = new JPanel();
 		pit12 = new JPanel();	north12 = new JPanel();		south12 = new JPanel();		east12 = new JPanel();		west12 = new JPanel();
 	}
-
+	
+	/**
+	 * Creates board with panels and images.
+	 */
+	
 	public Board2 prepare() {
 		
 		boardPanel.setPreferredSize(new Dimension(1000, 224));
@@ -539,6 +551,10 @@ public class Board2 extends JPanel implements Board {
 		setVisible(true);
 		return this;
 	}
+	/**
+	 * Returns an Image to be added in a panel.
+	 * @param imageName Takes path to the image file as a string.
+	 */
 
 	public Image requestImage(String imageName) {
 		Image image = null;
@@ -551,6 +567,10 @@ public class Board2 extends JPanel implements Board {
 		return image;
 	}
 
+	/**
+	 * Adds marble in the panel.
+	 * @param panel Panel in which marble needs to be added.
+	 */
 	public void addMarbleToBoard(JPanel panel) {
 		JPanel p = new JPanel();
 		Marble mar = new Marble();
@@ -559,6 +579,9 @@ public class Board2 extends JPanel implements Board {
 		panel.add(p);
 	}
 
+	/**
+	 * Adds mouse listeners to panels.
+	 */
 	@Override
 	public void addListeners() {
 		// TODO Auto-generated method stub
@@ -603,10 +626,5 @@ public class Board2 extends JPanel implements Board {
 		}
 	}
 
-	public void addNumberOfMarble(JPanel panel, int i) {
-		for (int x = 0; x < i; x++) {
-			Marble marble = new Marble();
-			panel.add(marble.makeMarble());
-		}
-	}
+	
 }

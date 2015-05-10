@@ -1,4 +1,5 @@
 import java.awt.*;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.*;
@@ -6,9 +7,15 @@ import java.util.ArrayList;
 
 import javax.imageio.*;
 import javax.swing.*;
+/**
+ * Wooden board for Mancala.
+ * @author dreamTeam.
+ *
+ */
 
 public class Board1 extends JPanel implements Board {
 	ArrayList<JPanel> pitList;
+	
 	JPanel pit1, pit2, pit3, pit4, pit5, pit6, pit7, pit8, pit9, pit10, pit11, pit12 ;
 	
 	JPanel boardPanel;
@@ -24,10 +31,13 @@ public class Board1 extends JPanel implements Board {
 	JPanel south1, south2, south3, south4, south5, south6, south7, south8, south9, south10, south11, south12;
 	JPanel east1, east2, east3, east4, east5, east6, east7, east8, east9, east10, east11, east12;
 	JPanel west1, west2, west3, west4, west5, west6, west7, west8, west9, west10, west11, west12;
-	
 
 	JPanel pitPanel;
 
+	/**
+	 * Constructor for Board1.
+	 * @param ge Instance of GameEngine class.
+	 */
 	public Board1(GameEngine ge) {
 		g = ge;
 		pitList = new ArrayList<JPanel>();
@@ -75,6 +85,9 @@ public class Board1 extends JPanel implements Board {
 		pit12 = new JPanel();	north12 = new JPanel();		south12 = new JPanel();		east12 = new JPanel();		west12 = new JPanel();
 	}
 
+	/**
+	 * Creates board with panels and images.
+	 */
 	public Board1 prepare() {
 		
 		boardPanel.setPreferredSize(new Dimension(1000, 224));
@@ -539,7 +552,10 @@ public class Board1 extends JPanel implements Board {
 		setVisible(true);
 		return this;
 	}
-
+	/**
+	 * Returns an Image to be added in a panel.
+	 * @param imageName Takes path to the image file as a string.
+	 */
 	public Image requestImage(String imageName) {
 		Image image = null;
 
@@ -551,6 +567,10 @@ public class Board1 extends JPanel implements Board {
 		return image;
 	}
 
+	/**
+	 * Adds marble in the panel.
+	 * @param panel Panel in which marble needs to be added.
+	 */
 	public void addMarbleToBoard(JPanel panel) {
 		JPanel p = new JPanel();
 		Marble mar = new Marble();
@@ -559,6 +579,9 @@ public class Board1 extends JPanel implements Board {
 		panel.add(p);
 	}
 
+	/**
+	 * Adds mouse listeners to panels.
+	 */
 	@Override
 	public void addListeners() {
 		// TODO Auto-generated method stub
@@ -603,10 +626,5 @@ public class Board1 extends JPanel implements Board {
 		}
 	}
 
-	public void addNumberOfMarble(JPanel panel, int i) {
-		for (int x = 0; x < i; x++) {
-			Marble marble = new Marble();
-			panel.add(marble.makeMarble());
-		}
-	}
+	
 }

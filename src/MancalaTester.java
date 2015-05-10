@@ -1,5 +1,10 @@
 import javax.swing.*;
 
+/**
+ * Contains main method, initiates the program.
+ * @author dreamTeam
+ *
+ */
 public class MancalaTester 
 {
 	public static void main(String[] args) 

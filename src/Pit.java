@@ -1,5 +1,9 @@
 import java.util.ArrayList;
-
+/**
+ * Node class of the linked list data structure.
+ * @author dreamTeam.
+ *
+ */
 public class Pit
 {
 	private ArrayList<Marble> storage;
@@ -9,6 +13,9 @@ public class Pit
 	Pit next;
 	int position;
 	
+	/**
+	 * Default constructor for the pit.
+	 */
 	public Pit()
 	{
 		isPlayer1 = false;
@@ -17,19 +24,27 @@ public class Pit
 		count = 0;
 	}
 	
+	/**
+	 * Adds marble in pit.
+	 * @param m Marble.
+	 */
 	public void addMarble(Marble m)
 	{
 		storage.add(m);
-		count++;
-		
+		count++;	
 		
 	}
-	
+	/**
+	 * Removes all the marbles from pit.
+	 */
 	public void removeAll()
 	{
 		storage = new ArrayList<Marble>();
 	}
 	
+	/**
+	 * Removes marbles individually.
+	 */
 	public void removeMarble()
 	{
 		if(storage.size() > 0)
